@@ -174,7 +174,7 @@ def ComputeVocabulary():
     # find cutoff
     unigram_cutoff = 0
     json_data = {}
-    out_file = open("data/vocab_freq.json","w")
+    out_file = open("apidata/vocab_freq.json","w")
     for (i, (word, word_freq)) in enumerate(sorted_list):
         if word_freq < 10:
             unigram_cutoff = i - 1
@@ -204,7 +204,7 @@ def date_validate():
 try:
     CollectComments()
     ComputeVocabulary()
-    text_file = open("data/count.txt", "w")
+    text_file = open("apidata/count.txt", "w")
     cursor.execute("select count(*) from vocab_comments")
     for i in cursor:
         text_file.write(str(i[0]))

@@ -23,18 +23,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="calculate_score.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="calculate_score.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/calculate_score.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4726">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3321492" vertical-offset="119" max-vertical-offset="4726">
+              <caret line="30" column="27" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="27" />
               <folding>
-                <marker date="1422955073101" expanded="true" signature="2377:2456" placeholder="select full_..cname_articles..." />
-                <marker date="1422955073101" expanded="true" signature="2584:2660" placeholder="select artic..cname_comments..." />
-                <marker date="1422955073101" expanded="true" signature="2885:2964" placeholder="select full_..cname_articles..." />
-                <marker date="1422955073101" expanded="true" signature="5346:5427" placeholder="select comme..cname_comments..." />
-                <marker date="1422955073101" expanded="true" signature="5556:5632" placeholder="select artic..cname_comments..." />
-                <marker date="1422955073101" expanded="true" signature="5871:6015" placeholder="select comme..cname_comments..." />
+                <marker date="1422957258760" expanded="true" signature="2386:2465" placeholder="select full_..cname_articles..." />
+                <marker date="1422957258760" expanded="true" signature="2593:2669" placeholder="select artic..cname_comments..." />
+                <marker date="1422957258760" expanded="true" signature="2894:2973" placeholder="select full_..cname_articles..." />
+                <marker date="1422957258760" expanded="true" signature="5355:5436" placeholder="select comme..cname_comments..." />
+                <marker date="1422957258760" expanded="true" signature="5565:5641" placeholder="select artic..cname_comments..." />
+                <marker date="1422957258760" expanded="true" signature="5880:6024" placeholder="select comme..cname_comments..." />
               </folding>
             </state>
           </provider>
@@ -43,10 +43,9 @@
       <file leaf-file-name="commentIQ_API.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commentIQ_API.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="5372">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="17" selection-end-column="63" />
+            <state vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="5236">
+              <caret line="17" column="35" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="35" />
               <folding>
-                <element signature="e#24#127#0" expanded="true" />
                 <marker date="1422955073165" expanded="true" signature="1480:1591" placeholder="INSERT INTO ..." />
                 <marker date="1422955073165" expanded="true" signature="2548:2675" placeholder="update cname..." />
                 <marker date="1422955073165" expanded="true" signature="3372:3448" placeholder="select count..cname_articles..." />
@@ -63,20 +62,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NytApiCall_ComputeVocab.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/NytApiCall_ComputeVocab.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9421769" vertical-offset="228" max-vertical-offset="3570">
-              <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
-              <folding>
-                <marker date="1422955391131" expanded="true" signature="4834:5175" placeholder="INSERT INTO ..." />
-                <marker date="1422955391131" expanded="true" signature="5906:5944" placeholder="select comme..vocab_comments..." />
-                <marker date="1422955391131" expanded="true" signature="7607:7642" placeholder="select count..vocab_comments..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -87,9 +72,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/calculate_score.py" />
         <option value="$PROJECT_DIR$/commentIQ_API.py" />
         <option value="$PROJECT_DIR$/NytApiCall_ComputeVocab.py" />
+        <option value="$PROJECT_DIR$/calculate_score.py" />
       </list>
     </option>
   </component>
@@ -125,6 +110,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -145,7 +131,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -205,24 +190,24 @@
     <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25378788" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -247,15 +232,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/calculate_score.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4726">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4930">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1422955073101" expanded="true" signature="2377:2456" placeholder="select full_..cname_articles..." />
-            <marker date="1422955073101" expanded="true" signature="2584:2660" placeholder="select artic..cname_comments..." />
-            <marker date="1422955073101" expanded="true" signature="2885:2964" placeholder="select full_..cname_articles..." />
-            <marker date="1422955073101" expanded="true" signature="5346:5427" placeholder="select comme..cname_comments..." />
-            <marker date="1422955073101" expanded="true" signature="5556:5632" placeholder="select artic..cname_comments..." />
-            <marker date="1422955073101" expanded="true" signature="5871:6015" placeholder="select comme..cname_comments..." />
+            <marker date="1422957258760" expanded="true" signature="2386:2465" placeholder="select full_..cname_articles..." />
+            <marker date="1422957258760" expanded="true" signature="2593:2669" placeholder="select artic..cname_comments..." />
+            <marker date="1422957258760" expanded="true" signature="2894:2973" placeholder="select full_..cname_articles..." />
+            <marker date="1422957258760" expanded="true" signature="5355:5436" placeholder="select comme..cname_comments..." />
+            <marker date="1422957258760" expanded="true" signature="5565:5641" placeholder="select artic..cname_comments..." />
+            <marker date="1422957258760" expanded="true" signature="5880:6024" placeholder="select comme..cname_comments..." />
           </folding>
         </state>
       </provider>
@@ -265,7 +250,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="5372">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="17" selection-end-column="63" />
           <folding>
-            <element signature="e#24#127#0" expanded="true" />
             <marker date="1422955073165" expanded="true" signature="1480:1591" placeholder="INSERT INTO ..." />
             <marker date="1422955073165" expanded="true" signature="2548:2675" placeholder="update cname..." />
             <marker date="1422955073165" expanded="true" signature="3372:3448" placeholder="select count..cname_articles..." />
@@ -283,12 +267,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NytApiCall_ComputeVocab.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9421769" vertical-offset="228" max-vertical-offset="3570">
+        <state vertical-scroll-proportion="0.0" vertical-offset="228" max-vertical-offset="3570">
           <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
           <folding>
-            <marker date="1422955391131" expanded="true" signature="4834:5175" placeholder="INSERT INTO ..." />
-            <marker date="1422955391131" expanded="true" signature="5906:5944" placeholder="select comme..vocab_comments..." />
-            <marker date="1422955391131" expanded="true" signature="7607:7642" placeholder="select count..vocab_comments..." />
+            <marker date="1422957258818" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1422957258818" expanded="true" signature="-1:-1" placeholder="select comme..vocab_comments..." />
+            <marker date="1422957258818" expanded="true" signature="-1:-1" placeholder="select count..vocab_comments..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NytApiCall_ComputeVocab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321492" vertical-offset="2635" max-vertical-offset="3570">
+          <caret line="176" column="29" selection-start-line="176" selection-start-column="24" selection-end-line="176" selection-end-column="29" />
+          <folding>
+            <marker date="1422957258818" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1422957258818" expanded="true" signature="-1:-1" placeholder="select comme..vocab_comments..." />
+            <marker date="1422957258818" expanded="true" signature="-1:-1" placeholder="select count..vocab_comments..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commentIQ_API.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.12" vertical-offset="0" max-vertical-offset="5236">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="35" />
+          <folding>
+            <marker date="1422955073165" expanded="true" signature="1480:1591" placeholder="INSERT INTO ..." />
+            <marker date="1422955073165" expanded="true" signature="2548:2675" placeholder="update cname..." />
+            <marker date="1422955073165" expanded="true" signature="3372:3448" placeholder="select count..cname_articles..." />
+            <marker date="1422955073165" expanded="true" signature="3937:4183" placeholder="INSERT INTO ..." />
+            <marker date="1422955073165" expanded="true" signature="5878:6250" placeholder="update cname..." />
+            <marker date="1422955073165" expanded="true" signature="7355:7417" placeholder="delete from ..." />
+            <marker date="1422955073165" expanded="true" signature="8012:8093" placeholder="select Artic..cname_comments..." />
+            <marker date="1422955073165" expanded="true" signature="8855:8943" placeholder="select Conve..cname_comments..." />
+            <marker date="1422955073165" expanded="true" signature="9714:9789" placeholder="select Perso..cname_comments..." />
+            <marker date="1422955073165" expanded="true" signature="10497:10573" placeholder="select Reada..cname_comments..." />
+            <marker date="1422955073165" expanded="true" signature="11277:11433" placeholder="select Artic..cname_comments..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calculate_score.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321492" vertical-offset="119" max-vertical-offset="4726">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="27" />
+          <folding>
+            <marker date="1422957258760" expanded="true" signature="2386:2465" placeholder="select full_..cname_articles..." />
+            <marker date="1422957258760" expanded="true" signature="2593:2669" placeholder="select artic..cname_comments..." />
+            <marker date="1422957258760" expanded="true" signature="2894:2973" placeholder="select full_..cname_articles..." />
+            <marker date="1422957258760" expanded="true" signature="5355:5436" placeholder="select comme..cname_comments..." />
+            <marker date="1422957258760" expanded="true" signature="5565:5641" placeholder="select artic..cname_comments..." />
+            <marker date="1422957258760" expanded="true" signature="5880:6024" placeholder="select comme..cname_comments..." />
           </folding>
         </state>
       </provider>

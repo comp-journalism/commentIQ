@@ -23,16 +23,16 @@ vocab_freq = {}
 nDocuments = 0
 
 # JSON containing Frequency of each word
-json_data = open("data/vocab_freq.json")
+json_data = open("apidata/vocab_freq.json")
 
 vocab_freq = json.load(json_data)
 
 # Count of the total number of comments collected
-count_read = open("data/count.txt", "r")
+count_read = open("apidata/count.txt", "r")
 
 nDocuments = int(count_read.read())
 
-with open("data/personal.txt") as f:
+with open("apidata/personal.txt") as f:
     personal_words = f.read().splitlines()
 
 def NormalizeVector(vector):
