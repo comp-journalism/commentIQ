@@ -12,6 +12,7 @@ import mysql.connector
 import sys
 import json
 import string
+from ConfigParser import SafeConfigParser
 from nltk.tokenize import WhitespaceTokenizer
 from CleanTokenize import CleanAndTokenize
 from TextStatistics import TextStatistics
@@ -27,13 +28,22 @@ json_data = open("apidata/vocab_freq.json")
 
 vocab_freq = json.load(json_data)
 
-# Count of the total number of comments collected
 count_read = open("apidata/count.txt", "r")
 
+# Total Number of comments collected
 nDocuments = int(count_read.read())
 
+# List of Personal Words from LIWC dictionary
 with open("apidata/personal.txt") as f:
     personal_words = f.read().splitlines()
+
+parser = SafeConfigParser()
+parser.read('apidata/database.ini')
+
+user = parser.get('credentials', 'user')
+password = parser.get('credentials', 'password')
+host = parser.get('credentials', 'host')
+database = parser.get('credentials', 'database')
 
 def NormalizeVector(vector):
     length = ComputeVectorLength(vector)
@@ -72,30 +82,28 @@ def error_name():
     msg = str(exc_type)
     error = re.split(r'[.]',msg)
     error = re.findall(r'\w+',error[1])
-    error_msg = str(error[0]) + "occured in line " + str(exc_tb.tb_lineno)
+    error_msg = str(error[0])
     return error_msg
 
-def ComputeCommentArticleRelevance(comment_text,CnameID,operation):
+def ComputeCommentArticleRelevance(comment_text,ID,operation):
 
-    cnx = mysql.connector.connect(user='your user ID', password='Your Password',
-                               host='hostname like 127.0.0.1',
-                               database='Name of the database')
+    cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
     cursor = cnx.cursor()
 
     if operation == 'add':
-        articleID = CnameID
-        cursor.execute("select full_text from cname_articles where articleID = '" + str(articleID) + "'")
+        articleID = ID
+        cursor.execute("select full_text from articles where articleID = '" + str(articleID) + "'")
         article_data = cursor.fetchall()
     elif operation == 'update':
-        commentID = CnameID
-        cursor.execute("select articleID from cname_comments where commentID ='"+ str(commentID) +"' ")
+        commentID = ID
+        cursor.execute("select articleID from comments where commentID ='"+ str(commentID) +"' ")
         fetch_data = cursor.fetchall()
         if len(fetch_data) > 0:
             articleID = fetch_data[0][0]
         else:
             ArticleRelevance = 0.0
             return ArticleRelevance
-        cursor.execute("select full_text from cname_articles where articleID = '" + str(articleID) + "'")
+        cursor.execute("select full_text from articles where articleID = '" + str(articleID) + "'")
         article_data = cursor.fetchall()
     else:
         ArticleRelevance = 0.0
@@ -124,7 +132,7 @@ def ComputeCommentArticleRelevance(comment_text,CnameID,operation):
     article_features = {}
     comment_features = {}
 
-    # Calculate weight for each word in the comment
+    # Calculate weight for each word in the comment with tf-idf
     for w in vocab_freq:
             df = vocab_freq[w]
             log_fraction = (nDocuments / df)
@@ -146,26 +154,25 @@ def ComputeCommentArticleRelevance(comment_text,CnameID,operation):
     return comment_article_similarity
 
 
-def ComputeCommentConversationalRelevance(comment_text,CnameID,operation):
+def ComputeCommentConversationalRelevance(comment_text,ID,operation):
 
-    cnx = mysql.connector.connect(user='your user ID', password='Your Password',
-                               host='hostname like 127.0.0.1',
-                               database='Name of the database')
+    cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
     cursor = cnx.cursor()
+
     if operation == 'add':
-        articleID = CnameID
-        cursor.execute("select commentBody from cname_comments where articleID = '" + str(articleID) + "' ")
+        articleID = ID
+        cursor.execute("select commentBody from comments where articleID = '" + str(articleID) + "' ")
         comment_data = cursor.fetchall()
     elif operation == 'update':
-        commentID = CnameID
-        cursor.execute("select articleID from cname_comments where commentID ='"+ str(commentID) +"' ")
+        commentID = ID
+        cursor.execute("select articleID from comments where commentID ='"+ str(commentID) +"' ")
         fetch_data = cursor.fetchall()
         if len(fetch_data) > 0:
             articleID = fetch_data[0][0]
         else:
             ConversationalRelevance = 0.0
             return ConversationalRelevance
-        cursor.execute("select commentBody from cname_comments "
+        cursor.execute("select commentBody from comments "
                        "where articleID = '"+ str(articleID) +"' and commentID < '"+ str(commentID) +"' ")
         comment_data = cursor.fetchall()
     else:
@@ -188,7 +195,7 @@ def ComputeCommentConversationalRelevance(comment_text,CnameID,operation):
                 centroid_comment_stemmed_tokens.extend([porter.stem(token) for token in token_list])
     centroid_comment_stemmed_tokens_fd = FreqDist(centroid_comment_stemmed_tokens)
 
-    # Calculate weight for each word in all the comments
+    # Calculate weight for each word in all the comments with tf-idf
     for w in vocab_freq:
                 log_fraction = (nDocuments / vocab_freq[w])
                 if log_fraction < 1:
@@ -201,7 +208,7 @@ def ComputeCommentConversationalRelevance(comment_text,CnameID,operation):
     # normalize vector
     centroid_comment_features = NormalizeVector(centroid_comment_features)
 
-    # Now compute dist to  comment
+    # Now compute distance to  comment
     comment_stemmed_tokens = []
     comment_features = {}
     comment_text = escape_string(comment_text.strip())
@@ -209,7 +216,7 @@ def ComputeCommentConversationalRelevance(comment_text,CnameID,operation):
     token_list = [word for word in token_list if word not in stopword_list]
     comment_stemmed_tokens.extend([porter.stem(token) for token in token_list])
     comment_stemmed_tokens_fd  = FreqDist(comment_stemmed_tokens)
-    # Calculate weight for each word in the comment
+    # Calculate weight for each word in the comment with tf-idf
     for w in vocab_freq:
                 log_fraction = (nDocuments / vocab_freq[w])
                 if log_fraction < 1:
@@ -223,8 +230,8 @@ def ComputeCommentConversationalRelevance(comment_text,CnameID,operation):
     return comment_originality
 
 def calcPersonalXPScores(comment_text):
-    tokenizer = WhitespaceTokenizer()
 
+    tokenizer = WhitespaceTokenizer()
     personal_xp_score = 0
     text = comment_text.lower()
 
@@ -238,7 +245,7 @@ def calcPersonalXPScores(comment_text):
     # tokenize it
     text_tokens = tokenizer.tokenize(text)
 
-    # if the tokens are in the dict then increment score
+    # if the tokens are in the personal_words List then increment score
     for tok in text_tokens:
         tok_stem = porter.stem(tok)
         if tok_stem in personal_words:
@@ -250,9 +257,8 @@ def calcPersonalXPScores(comment_text):
     return personal_xp_score
 
 def calcReadability(comment_text):
-    tokenizer = WhitespaceTokenizer()
-    textstat = TextStatistics("")
 
+    textstat = TextStatistics("")
     text = comment_text.lower()
 
     #filter out punctuations
