@@ -26,16 +26,16 @@
       <file leaf-file-name="calculate_score.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/calculate_score.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.634103" vertical-offset="323" max-vertical-offset="5032">
-              <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.1811723" vertical-offset="0" max-vertical-offset="5100">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="52" />
               <folding>
-                <element signature="e#73#110#0" expanded="true" />
-                <marker date="1423452759163" expanded="true" signature="2538:2611" placeholder="select full_..articles..." />
-                <marker date="1423452759163" expanded="true" signature="2734:2804" placeholder="select artic..comments..." />
-                <marker date="1423452759163" expanded="true" signature="3029:3102" placeholder="select full_..articles..." />
-                <marker date="1423452759163" expanded="true" signature="5373:5448" placeholder="select comme..comments..." />
-                <marker date="1423452759163" expanded="true" signature="5572:5642" placeholder="select artic..comments..." />
-                <marker date="1423452759163" expanded="true" signature="5881:6019" placeholder="select comme..comments..." />
+                <element signature="e#279#316#0" expanded="true" />
+                <marker date="1423453927535" expanded="true" signature="2744:2817" placeholder="select full_..articles..." />
+                <marker date="1423453927535" expanded="true" signature="2940:3010" placeholder="select artic..comments..." />
+                <marker date="1423453927535" expanded="true" signature="3235:3308" placeholder="select full_..articles..." />
+                <marker date="1423453927535" expanded="true" signature="5579:5654" placeholder="select comme..comments..." />
+                <marker date="1423453927535" expanded="true" signature="5778:5848" placeholder="select artic..comments..." />
+                <marker date="1423453927535" expanded="true" signature="6087:6225" placeholder="select comme..comments..." />
               </folding>
             </state>
           </provider>
@@ -44,13 +44,13 @@
       <file leaf-file-name="NytApiCall_ComputeVocab.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NytApiCall_ComputeVocab.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-159.12" vertical-offset="0" max-vertical-offset="4080">
-              <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
+            <state vertical-scroll-proportion="-2.72" vertical-offset="0" max-vertical-offset="4199">
+              <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
               <folding>
-                <element signature="e#54#67#0" expanded="true" />
-                <marker date="1423452541920" expanded="true" signature="5460:5813" placeholder="INSERT INTO ..." />
-                <marker date="1423452541920" expanded="true" signature="6665:6703" placeholder="select comme..vocab_comments..." />
-                <marker date="1423452541920" expanded="true" signature="8543:8578" placeholder="select count..vocab_comments..." />
+                <element signature="e#282#295#0" expanded="true" />
+                <marker date="1423453723403" expanded="true" signature="5781:6134" placeholder="INSERT INTO ..." />
+                <marker date="1423453723403" expanded="true" signature="7004:7042" placeholder="select comme..vocab_comments..." />
+                <marker date="1423453723403" expanded="true" signature="8938:8973" placeholder="select count..vocab_comments..." />
               </folding>
             </state>
           </provider>
@@ -59,21 +59,22 @@
       <file leaf-file-name="commentIQ_API.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commentIQ_API.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.48" vertical-offset="2533" max-vertical-offset="5270">
-              <caret line="166" column="33" selection-start-line="166" selection-start-column="29" selection-end-line="166" selection-end-column="33" />
+            <state vertical-scroll-proportion="-17.68" vertical-offset="0" max-vertical-offset="5440">
+              <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
               <folding>
-                <marker date="1423452644414" expanded="true" signature="1216:1321" placeholder="INSERT INTO ..." />
-                <marker date="1423452644414" expanded="true" signature="2261:2381" placeholder="update artic..." />
-                <marker date="1423452644414" expanded="true" signature="3151:3221" placeholder="select count..articles..." />
-                <marker date="1423452644414" expanded="true" signature="3793:4033" placeholder="INSERT INTO ..." />
-                <marker date="1423452644414" expanded="true" signature="5833:6199" placeholder="update comme..." />
-                <marker date="1423452644414" expanded="true" signature="7330:7386" placeholder="delete from ..." />
-                <marker date="1423452644414" expanded="true" signature="8024:8099" placeholder="select Artic..comments..." />
-                <marker date="1423452644414" expanded="true" signature="8911:8993" placeholder="select Conve..comments..." />
-                <marker date="1423452644414" expanded="true" signature="9810:9879" placeholder="select Perso..comments..." />
-                <marker date="1423452644414" expanded="true" signature="10625:10695" placeholder="select Reada..comments..." />
-                <marker date="1423452644414" expanded="true" signature="11426:11576" placeholder="select Artic..comments..." />
-                <marker date="1423452644414" expanded="true" signature="11502:11576" placeholder="select Artic..cname_comments..." />
+                <element signature="e#219#260#0" expanded="true" />
+                <marker date="1423453927593" expanded="true" signature="1411:1516" placeholder="INSERT INTO ..." />
+                <marker date="1423453927593" expanded="true" signature="2456:2576" placeholder="update artic..." />
+                <marker date="1423453927593" expanded="true" signature="3346:3416" placeholder="select count..articles..." />
+                <marker date="1423453927593" expanded="true" signature="3988:4228" placeholder="INSERT INTO ..." />
+                <marker date="1423453927593" expanded="true" signature="6028:6394" placeholder="update comme..." />
+                <marker date="1423453927593" expanded="true" signature="7525:7581" placeholder="delete from ..." />
+                <marker date="1423453927593" expanded="true" signature="8219:8294" placeholder="select Artic..comments..." />
+                <marker date="1423453927593" expanded="true" signature="9106:9188" placeholder="select Conve..comments..." />
+                <marker date="1423453927593" expanded="true" signature="10005:10074" placeholder="select Perso..comments..." />
+                <marker date="1423453927593" expanded="true" signature="10820:10890" placeholder="select Reada..comments..." />
+                <marker date="1423453927593" expanded="true" signature="11621:11771" placeholder="select Artic..comments..." />
+                <marker date="1423453927593" expanded="true" signature="11697:11771" placeholder="select Artic..cname_comments..." />
               </folding>
             </state>
           </provider>
@@ -266,13 +267,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="4726">
           <caret line="30" column="27" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="27" />
           <folding>
-            <element signature="e#73#110#0" expanded="true" />
-            <marker date="1423452759163" expanded="true" signature="2538:2611" placeholder="select full_..articles..." />
-            <marker date="1423452759163" expanded="true" signature="2734:2804" placeholder="select artic..comments..." />
-            <marker date="1423452759163" expanded="true" signature="3029:3102" placeholder="select full_..articles..." />
-            <marker date="1423452759163" expanded="true" signature="5373:5448" placeholder="select comme..comments..." />
-            <marker date="1423452759163" expanded="true" signature="5572:5642" placeholder="select artic..comments..." />
-            <marker date="1423452759163" expanded="true" signature="5881:6019" placeholder="select comme..comments..." />
+            <element signature="e#279#316#0" expanded="true" />
+            <marker date="1423453927535" expanded="true" signature="2744:2817" placeholder="select full_..articles..." />
+            <marker date="1423453927535" expanded="true" signature="2940:3010" placeholder="select artic..comments..." />
+            <marker date="1423453927535" expanded="true" signature="3235:3308" placeholder="select full_..articles..." />
+            <marker date="1423453927535" expanded="true" signature="5579:5654" placeholder="select comme..comments..." />
+            <marker date="1423453927535" expanded="true" signature="5778:5848" placeholder="select artic..comments..." />
+            <marker date="1423453927535" expanded="true" signature="6087:6225" placeholder="select comme..comments..." />
           </folding>
         </state>
       </provider>
@@ -282,18 +283,19 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="5372">
           <caret line="17" column="35" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="35" />
           <folding>
-            <marker date="1423452644414" expanded="true" signature="1216:1321" placeholder="INSERT INTO ..." />
-            <marker date="1423452644414" expanded="true" signature="2261:2381" placeholder="update artic..." />
-            <marker date="1423452644414" expanded="true" signature="3151:3221" placeholder="select count..articles..." />
-            <marker date="1423452644414" expanded="true" signature="3793:4033" placeholder="INSERT INTO ..." />
-            <marker date="1423452644414" expanded="true" signature="5833:6199" placeholder="update comme..." />
-            <marker date="1423452644414" expanded="true" signature="7330:7386" placeholder="delete from ..." />
-            <marker date="1423452644414" expanded="true" signature="8024:8099" placeholder="select Artic..comments..." />
-            <marker date="1423452644414" expanded="true" signature="8911:8993" placeholder="select Conve..comments..." />
-            <marker date="1423452644414" expanded="true" signature="9810:9879" placeholder="select Perso..comments..." />
-            <marker date="1423452644414" expanded="true" signature="10625:10695" placeholder="select Reada..comments..." />
-            <marker date="1423452644414" expanded="true" signature="11426:11576" placeholder="select Artic..comments..." />
-            <marker date="1423452644414" expanded="true" signature="11502:11576" placeholder="select Artic..cname_comments..." />
+            <element signature="e#219#260#0" expanded="true" />
+            <marker date="1423453927593" expanded="true" signature="1411:1516" placeholder="INSERT INTO ..." />
+            <marker date="1423453927593" expanded="true" signature="2456:2576" placeholder="update artic..." />
+            <marker date="1423453927593" expanded="true" signature="3346:3416" placeholder="select count..articles..." />
+            <marker date="1423453927593" expanded="true" signature="3988:4228" placeholder="INSERT INTO ..." />
+            <marker date="1423453927593" expanded="true" signature="6028:6394" placeholder="update comme..." />
+            <marker date="1423453927593" expanded="true" signature="7525:7581" placeholder="delete from ..." />
+            <marker date="1423453927593" expanded="true" signature="8219:8294" placeholder="select Artic..comments..." />
+            <marker date="1423453927593" expanded="true" signature="9106:9188" placeholder="select Conve..comments..." />
+            <marker date="1423453927593" expanded="true" signature="10005:10074" placeholder="select Perso..comments..." />
+            <marker date="1423453927593" expanded="true" signature="10820:10890" placeholder="select Reada..comments..." />
+            <marker date="1423453927593" expanded="true" signature="11621:11771" placeholder="select Artic..comments..." />
+            <marker date="1423453927593" expanded="true" signature="11697:11771" placeholder="select Artic..cname_comments..." />
           </folding>
         </state>
       </provider>
@@ -303,13 +305,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4930">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#73#110#0" expanded="true" />
-            <marker date="1423452759163" expanded="true" signature="2538:2611" placeholder="select full_..articles..." />
-            <marker date="1423452759163" expanded="true" signature="2734:2804" placeholder="select artic..comments..." />
-            <marker date="1423452759163" expanded="true" signature="3029:3102" placeholder="select full_..articles..." />
-            <marker date="1423452759163" expanded="true" signature="5373:5448" placeholder="select comme..comments..." />
-            <marker date="1423452759163" expanded="true" signature="5572:5642" placeholder="select artic..comments..." />
-            <marker date="1423452759163" expanded="true" signature="5881:6019" placeholder="select comme..comments..." />
+            <element signature="e#279#316#0" expanded="true" />
+            <marker date="1423453927535" expanded="true" signature="2744:2817" placeholder="select full_..articles..." />
+            <marker date="1423453927535" expanded="true" signature="2940:3010" placeholder="select artic..comments..." />
+            <marker date="1423453927535" expanded="true" signature="3235:3308" placeholder="select full_..articles..." />
+            <marker date="1423453927535" expanded="true" signature="5579:5654" placeholder="select comme..comments..." />
+            <marker date="1423453927535" expanded="true" signature="5778:5848" placeholder="select artic..comments..." />
+            <marker date="1423453927535" expanded="true" signature="6087:6225" placeholder="select comme..comments..." />
           </folding>
         </state>
       </provider>
@@ -319,18 +321,19 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="5372">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="17" selection-end-column="63" />
           <folding>
-            <marker date="1423452644414" expanded="true" signature="1216:1321" placeholder="INSERT INTO ..." />
-            <marker date="1423452644414" expanded="true" signature="2261:2381" placeholder="update artic..." />
-            <marker date="1423452644414" expanded="true" signature="3151:3221" placeholder="select count..articles..." />
-            <marker date="1423452644414" expanded="true" signature="3793:4033" placeholder="INSERT INTO ..." />
-            <marker date="1423452644414" expanded="true" signature="5833:6199" placeholder="update comme..." />
-            <marker date="1423452644414" expanded="true" signature="7330:7386" placeholder="delete from ..." />
-            <marker date="1423452644414" expanded="true" signature="8024:8099" placeholder="select Artic..comments..." />
-            <marker date="1423452644414" expanded="true" signature="8911:8993" placeholder="select Conve..comments..." />
-            <marker date="1423452644414" expanded="true" signature="9810:9879" placeholder="select Perso..comments..." />
-            <marker date="1423452644414" expanded="true" signature="10625:10695" placeholder="select Reada..comments..." />
-            <marker date="1423452644414" expanded="true" signature="11426:11576" placeholder="select Artic..comments..." />
-            <marker date="1423452644414" expanded="true" signature="11502:11576" placeholder="select Artic..cname_comments..." />
+            <element signature="e#219#260#0" expanded="true" />
+            <marker date="1423453927593" expanded="true" signature="1411:1516" placeholder="INSERT INTO ..." />
+            <marker date="1423453927593" expanded="true" signature="2456:2576" placeholder="update artic..." />
+            <marker date="1423453927593" expanded="true" signature="3346:3416" placeholder="select count..articles..." />
+            <marker date="1423453927593" expanded="true" signature="3988:4228" placeholder="INSERT INTO ..." />
+            <marker date="1423453927593" expanded="true" signature="6028:6394" placeholder="update comme..." />
+            <marker date="1423453927593" expanded="true" signature="7525:7581" placeholder="delete from ..." />
+            <marker date="1423453927593" expanded="true" signature="8219:8294" placeholder="select Artic..comments..." />
+            <marker date="1423453927593" expanded="true" signature="9106:9188" placeholder="select Conve..comments..." />
+            <marker date="1423453927593" expanded="true" signature="10005:10074" placeholder="select Perso..comments..." />
+            <marker date="1423453927593" expanded="true" signature="10820:10890" placeholder="select Reada..comments..." />
+            <marker date="1423453927593" expanded="true" signature="11621:11771" placeholder="select Artic..comments..." />
+            <marker date="1423453927593" expanded="true" signature="11697:11771" placeholder="select Artic..cname_comments..." />
           </folding>
         </state>
       </provider>
@@ -340,60 +343,61 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="228" max-vertical-offset="3570">
           <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
           <folding>
-            <element signature="e#54#67#0" expanded="true" />
-            <marker date="1423452541920" expanded="true" signature="5460:5813" placeholder="INSERT INTO ..." />
-            <marker date="1423452541920" expanded="true" signature="6665:6703" placeholder="select comme..vocab_comments..." />
-            <marker date="1423452541920" expanded="true" signature="8543:8578" placeholder="select count..vocab_comments..." />
+            <element signature="e#282#295#0" expanded="true" />
+            <marker date="1423453723403" expanded="true" signature="5781:6134" placeholder="INSERT INTO ..." />
+            <marker date="1423453723403" expanded="true" signature="7004:7042" placeholder="select comme..vocab_comments..." />
+            <marker date="1423453723403" expanded="true" signature="8938:8973" placeholder="select count..vocab_comments..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NytApiCall_ComputeVocab.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-159.12" vertical-offset="0" max-vertical-offset="4080">
-          <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
+        <state vertical-scroll-proportion="-2.72" vertical-offset="0" max-vertical-offset="4199">
+          <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
           <folding>
-            <element signature="e#54#67#0" expanded="true" />
-            <marker date="1423452541920" expanded="true" signature="5460:5813" placeholder="INSERT INTO ..." />
-            <marker date="1423452541920" expanded="true" signature="6665:6703" placeholder="select comme..vocab_comments..." />
-            <marker date="1423452541920" expanded="true" signature="8543:8578" placeholder="select count..vocab_comments..." />
+            <element signature="e#282#295#0" expanded="true" />
+            <marker date="1423453723403" expanded="true" signature="5781:6134" placeholder="INSERT INTO ..." />
+            <marker date="1423453723403" expanded="true" signature="7004:7042" placeholder="select comme..vocab_comments..." />
+            <marker date="1423453723403" expanded="true" signature="8938:8973" placeholder="select count..vocab_comments..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/commentIQ_API.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.48" vertical-offset="2533" max-vertical-offset="5270">
-          <caret line="166" column="33" selection-start-line="166" selection-start-column="29" selection-end-line="166" selection-end-column="33" />
+        <state vertical-scroll-proportion="-17.68" vertical-offset="0" max-vertical-offset="5440">
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
           <folding>
-            <marker date="1423452644414" expanded="true" signature="1216:1321" placeholder="INSERT INTO ..." />
-            <marker date="1423452644414" expanded="true" signature="2261:2381" placeholder="update artic..." />
-            <marker date="1423452644414" expanded="true" signature="3151:3221" placeholder="select count..articles..." />
-            <marker date="1423452644414" expanded="true" signature="3793:4033" placeholder="INSERT INTO ..." />
-            <marker date="1423452644414" expanded="true" signature="5833:6199" placeholder="update comme..." />
-            <marker date="1423452644414" expanded="true" signature="7330:7386" placeholder="delete from ..." />
-            <marker date="1423452644414" expanded="true" signature="8024:8099" placeholder="select Artic..comments..." />
-            <marker date="1423452644414" expanded="true" signature="8911:8993" placeholder="select Conve..comments..." />
-            <marker date="1423452644414" expanded="true" signature="9810:9879" placeholder="select Perso..comments..." />
-            <marker date="1423452644414" expanded="true" signature="10625:10695" placeholder="select Reada..comments..." />
-            <marker date="1423452644414" expanded="true" signature="11426:11576" placeholder="select Artic..comments..." />
-            <marker date="1423452644414" expanded="true" signature="11502:11576" placeholder="select Artic..cname_comments..." />
+            <element signature="e#219#260#0" expanded="true" />
+            <marker date="1423453927593" expanded="true" signature="1411:1516" placeholder="INSERT INTO ..." />
+            <marker date="1423453927593" expanded="true" signature="2456:2576" placeholder="update artic..." />
+            <marker date="1423453927593" expanded="true" signature="3346:3416" placeholder="select count..articles..." />
+            <marker date="1423453927593" expanded="true" signature="3988:4228" placeholder="INSERT INTO ..." />
+            <marker date="1423453927593" expanded="true" signature="6028:6394" placeholder="update comme..." />
+            <marker date="1423453927593" expanded="true" signature="7525:7581" placeholder="delete from ..." />
+            <marker date="1423453927593" expanded="true" signature="8219:8294" placeholder="select Artic..comments..." />
+            <marker date="1423453927593" expanded="true" signature="9106:9188" placeholder="select Conve..comments..." />
+            <marker date="1423453927593" expanded="true" signature="10005:10074" placeholder="select Perso..comments..." />
+            <marker date="1423453927593" expanded="true" signature="10820:10890" placeholder="select Reada..comments..." />
+            <marker date="1423453927593" expanded="true" signature="11621:11771" placeholder="select Artic..comments..." />
+            <marker date="1423453927593" expanded="true" signature="11697:11771" placeholder="select Artic..cname_comments..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/calculate_score.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.634103" vertical-offset="323" max-vertical-offset="5032">
-          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.1811723" vertical-offset="0" max-vertical-offset="5100">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="52" />
           <folding>
-            <element signature="e#73#110#0" expanded="true" />
-            <marker date="1423452759163" expanded="true" signature="2538:2611" placeholder="select full_..articles..." />
-            <marker date="1423452759163" expanded="true" signature="2734:2804" placeholder="select artic..comments..." />
-            <marker date="1423452759163" expanded="true" signature="3029:3102" placeholder="select full_..articles..." />
-            <marker date="1423452759163" expanded="true" signature="5373:5448" placeholder="select comme..comments..." />
-            <marker date="1423452759163" expanded="true" signature="5572:5642" placeholder="select artic..comments..." />
-            <marker date="1423452759163" expanded="true" signature="5881:6019" placeholder="select comme..comments..." />
+            <element signature="e#279#316#0" expanded="true" />
+            <marker date="1423453927535" expanded="true" signature="2744:2817" placeholder="select full_..articles..." />
+            <marker date="1423453927535" expanded="true" signature="2940:3010" placeholder="select artic..comments..." />
+            <marker date="1423453927535" expanded="true" signature="3235:3308" placeholder="select full_..articles..." />
+            <marker date="1423453927535" expanded="true" signature="5579:5654" placeholder="select comme..comments..." />
+            <marker date="1423453927535" expanded="true" signature="5778:5848" placeholder="select artic..comments..." />
+            <marker date="1423453927535" expanded="true" signature="6087:6225" placeholder="select comme..comments..." />
           </folding>
         </state>
       </provider>

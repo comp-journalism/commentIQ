@@ -2,6 +2,10 @@
 # -*- coding: utf-8 -*-
 __author__ = 'simranjitsingh'
 
+# This code calculate all the scores i.e Articles Relevance Score , Conversational Relevance Scores ,
+# Readability Score and Personal Experience Score
+# Subroutines used : CleanAndTokenize,TextStatistics
+
 from nltk.probability import FreqDist
 from nltk.corpus import stopwords
 import nltk.tag, nltk.util, nltk.stem

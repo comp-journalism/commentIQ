@@ -1,5 +1,9 @@
 __author__ = 'ssachar'
 
+# This is python-flask api code to send scores as response for the desired operations
+# The response keys and values depends upon the end points requested
+# subroutine used - calculate_score.py
+
 from flask import Flask, request, jsonify
 import time
 import mysql.connector
