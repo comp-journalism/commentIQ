@@ -1,9 +1,3 @@
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
---
--- Host: awsdbinstance.cz5m3w6kwml8.us-east-1.rds.amazonaws.com    Database: comment_iq
--- ------------------------------------------------------
--- Server version	5.6.19-log
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -16,13 +10,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cname_articles`
+-- Table structure for table `articles`
 --
 
-DROP TABLE IF EXISTS `cname_articles`;
+DROP TABLE IF EXISTS `articles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cname_articles` (
+CREATE TABLE `articles` (
   `articleID` int(11) NOT NULL AUTO_INCREMENT,
   `pubDate` datetime DEFAULT NULL,
   `headline` text,
@@ -34,10 +28,10 @@ CREATE TABLE `cname_articles` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `cname_comments`
+-- Table structure for table `comments`
 --
 
-DROP TABLE IF EXISTS `cname_comments`;
+DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cname_comments` (
