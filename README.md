@@ -16,7 +16,9 @@ The Personal Experience score is a measure of expressions of personal experience
 The Readability score is calculated as the <a href="http://www.readabilityformulas.com/smog-readability-formula.php">SMOG</a> index or reading grade level of the text. 
 
 #### References
-For more detailed information on the calculation
+The four criteria articulated above are explained in more detail (including their validation as measures of higher quality comments) in two research papers:
+* N. Diakopoulos. The Editor’s Eye: Curation and Comment Relevance on the New York Times. Proc. Conference on Computer Supported Cooperative Work (CSCW). 2015. [<a href="http://www.nickdiakopoulos.com/wp-content/uploads/2011/07/the_editors_eye_final.pdf">PDF</a>]
+* N. Diakopoulos. Picking the NYT Picks: Editorial Criteria and Automation in the Curation of Online News Comments. #ISOJ Journal. 2015. 
 
 ###How to use CommentIQ API
 There are 10 Different Request points and each Request point have specific function, parameters and responses.
