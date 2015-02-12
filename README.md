@@ -1,13 +1,13 @@
 CommentIQ API
 =========
-Comment IQ API is a RESTful API used to evaluate comments on news articles and return scores based on four criteria, defined below: Article Relevance, Conversational Relevance, Personal Experience and Readability.      
-(You can also install API code and run it locally on your own server. Follow the instructions <a href="https://github.com/comp-journalism/commentIQ/tree/master/CommentAPIcode" target="_blank">here</a> )
+Comment IQ API is a RESTful API used to evaluate comments on news articles and return scores based on four criteria, defined below: Article Relevance, Conversational Relevance, Personal Experience and Readability. 
+(You can also install the API code and run it locally on your own server. Follow the instructions <a href="https://github.com/comp-journalism/commentIQ/tree/master/CommentAPIcode" target="_blank">here</a> )
 
 ####Article Relevance 
-It is a criteria to calculate the comment score based on artcile similarity. Article Relevance score is calculated by taking cosine similarity or dot product of the respective normalized feature vectors for a comment and article to which it is attached.
+This criterion calculates the comment score based on article similarity. The Article Relevance score is calculated by taking the cosine similarity or dot product of the respective normalized feature vectors for a comment and article to which it is attached.
 
 ####Conversational Relevance
-Conversational Relevance measures how similar a comment is to other comments on the same article.Only those articles with 10 or more comments were considered in order to ensure that there was enough of a discussion to produce robust feature vectors. To measure conversational relevance, for each article’s comments a centroid feature vector was created representing the text of all of the comments on the article that were posted before a given comment. This represents the terms used across the thread up to that point in time. Then, for each comment in the thread its cosine similarity to this centroid representation was calculated in order to measure the comment’s conversational relevance.
+Conversational Relevance measures how similar a comment is to other comments on the same article. It becomes meaningful when there are 10 or more comments on an article, in order to ensure that there was enough of a discussion to produce robust feature vectors. To measure conversational relevance, for each article’s comments a centroid feature vector is created representing the text of all of the comments on the article that were posted before a given comment. This represents the terms used across the thread up to that point in time. Then, for the next comment in the thread its cosine similarity to this centroid representation is calculated in order to measure the comment’s conversational relevance.
 
 #### Personal Experience
 It is a criteria to calculate the comment score based on comments which express personal experiences and use words in LIWC categories “I”, “We”, “Family”, and “Friends” which would reflect personal (1st and 3rd person pronouns) and close relational (i.e. family and friends) experiences.
