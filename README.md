@@ -45,7 +45,7 @@ There are 10 Different endpoints currently availabe, with their specific functio
 
 ###  <a name="1"></a>1. Add Article
 #### 
-For new articles, article text needs to be send via HTTP POST method and a auto generated ArticleID will be send in response. This Article ID needs to be kept note of in order to update the article or adding comment to the article in future.             
+For new articles, article text needs to be sent via an HTTP POST method and an auto generated ArticleID will be sent in response. This Article ID needs to be kept track of in order to update the article or to add comments to the article in the future.             
 <b>Note: </b> Article ID is crucial in order to get the comment score
 
 | Name   | Values and Notes           |
