@@ -10,12 +10,13 @@ This criterion calculates the comment score based on article similarity. The Art
 Conversational Relevance measures how similar a comment is to other comments on the same article. It becomes meaningful when there are 10 or more comments on an article, in order to ensure that there is enough of a discussion to produce robust feature vectors. To measure conversational relevance, for each article’s comments a centroid feature vector is created representing the text of all of the comments on the article that were posted before a given comment. This represents the terms used across the thread up to that point in time. Then, for the next comment in the thread its cosine similarity to this centroid representation is calculated in order to measure the comment’s conversational relevance.
 
 #### Personal Experience
-This criterion calculates the comment score based on expressions of personal experiences by counting the rate of use of words in <a href="http://www.liwc.net/">Linguistic Inquiry and Word Count></a> (LIWC) categories “I”, “We”, “Family”, and “Friends” which would reflect personal (1st and 3rd person pronouns) and close relational (i.e. family and friends) experiences. 
+The Personal Experience score is a measure of expressions of personal experiences calculated by counting the rate of use of words in <a href="http://www.liwc.net/">Linguistic Inquiry and Word Count</a> (LIWC) categories “I”, “We”, “Family”, and “Friends” which would reflect personal (1st and 3rd person pronouns) and close relational (i.e. family and friends) experiences. 
 
 #### Readability
-The Readability score specifies specifically criteria related to the style, clarity, adherence to standard grammar, and degree to which a comment is well-articulated.The Readability score is the SMOG index or reading grade level of the text.
+The Readability score is calculated as the <a href="http://www.readabilityformulas.com/smog-readability-formula.php">SMOG</a> index or reading grade level of the text. 
 
-(Get API code and get it running on your machine. Follow the instructions <a href="https://github.com/comp-journalism/commentIQ/tree/master/CommentAPIcode" target="_blank">here</a> )
+#### References
+For more detailed information on the calculation
 
 ###How to use CommentIQ API
 There are 10 Different Request points and each Request point have specific function, parameters and responses.
