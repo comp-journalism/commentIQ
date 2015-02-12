@@ -21,7 +21,7 @@ The four criteria articulated above are explained in more detail (including thei
 * N. Diakopoulos. Picking the NYT Picks: Editorial Criteria and Automation in the Curation of Online News Comments. #ISOJ Journal. 2015. 
 
 ###How to use CommentIQ API
-There are 10 Different Request points and each Request point have specific function, parameters and responses.
+There are 10 Different endpoints currently availabe, with their specific function, parameters and responses as described below.
 
 
 1. [Add Article](#1)
