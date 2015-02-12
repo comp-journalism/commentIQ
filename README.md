@@ -22,7 +22,7 @@ The Readability score is calculated as the <a href="http://www.readabilityformul
 
 
 ###How to use CommentIQ API
-There are 10 Different endpoints currently availabe, with their specific function, parameters and responses as described below.
+There are 10 Different endpoints currently availabe, with their specific function, parameters and responses as described below. The basic gist of it is that you pass the API content (articles, and then comments associated with those articles) and the API will pass back the relevant scores. In order to provide a faster response time, content is cached on the CommentIQ server, which means that if your content changes (e.g. if an article is updated, or a comment is updated or deleted) you need to use the corresponding API endpoints so that the CommentIQ cache is synced and returning accurate scores.
 
 
 1. [Add Article](#1)
