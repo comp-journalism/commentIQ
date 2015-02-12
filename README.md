@@ -1,7 +1,7 @@
 CommentIQ API
 =========
 Comment IQ API is a RESTful API used to evaluate comments on news articles and return scores based on four criteria, defined below: Article Relevance, Conversational Relevance, Personal Experience and Readability.      
-(Get API code and get it running on your machine. Follow the instructions <a href="https://github.com/comp-journalism/commentIQ/tree/master/CommentAPIcode" target="_blank">here</a> )
+(You can also install API code and run it locally on your own server. Follow the instructions <a href="https://github.com/comp-journalism/commentIQ/tree/master/CommentAPIcode" target="_blank">here</a> )
 
 ####Article Relevance 
 It is a criteria to calculate the comment score based on artcile similarity. Article Relevance score is calculated by taking cosine similarity or dot product of the respective normalized feature vectors for a comment and article to which it is attached.
