@@ -132,9 +132,9 @@ status = response.json()['status']
 
 ### 3. <a name="3"></a>Add Comment
 #### 
-For new comments - Comment Text and Article ID needs to be send via HTTP POST method. All the scores will be calculated and send via Response. An auto-generated commentID will also be send in response.                                                  
+For new comments - Comment Text and Article ID need to be sent via an HTTP POST method. All the scores will be calculated and sent via Response. An auto-generated commentID will also be sent in response.                                                  
 
-<b>Note: </b> This Comment ID needs to be kept note of in order to update or delete the Comment in future.
+<b>Note: </b> This Comment ID needs to be kept track of in order to update or delete the comment in the future.
 
 
 | Name   | Values and Notes           |
