@@ -2,11 +2,11 @@ CommentIQ API Code
 ========
 Get the code up and running on your machine in 5 steps :-                                             
 
-1. Install All the required packages
+1. Install all the required packages
 2. Get the database and table structures
-3. Change the Config files
-4. Scrap comments data from New York Times to get the vocabulary and Document Count
-5. Run the CommentIQ API code
+3. Change the config files
+4. Collect comments data from New York Times to get a dataset that is used as the commenting vocabulary
+5. Run the CommentIQ API code to calculate scores
 
 
 ### 1. Installing the required packages
@@ -20,18 +20,18 @@ Please install the following softwares/packages before proceeding to step2
 * NLTK corpus for 'stop words' 
 * MySQL
 * MySQL Python connector
-* BeautifulSoap(bs4)
+* BeautifulSoup(bs4)
 * ConfigParser (if not included in default python libraries)
 
 
 ### 2. Get the database and table structure
 
-The Structures for all tables is present in a self contained SQL file - TableStructures.sql in 'apidata' folder. The table structures needs to be ready in order to run step 4.                 
-The TableStructures.sql can me imported in your database and executed to create all the table skeletons.
+The structures for all database tables is present in a self contained SQL file - TableStructures.sql in the 'apidata' folder. The table structures need to be ready in order to run step 4.                 
+The TableStructures.sql can be imported in your database and executed to create all the table skeletons.
 
-### 3. Change the Config files
+### 3. Edit the config files
 
-There are 2 config files that needs to be changed in order to run step 4 and 5.
+There are two config files that need to be changed in order to run steps 4 and 5.
 #### 1) database.ini
 ```sh
 [credentials]
@@ -40,7 +40,7 @@ password=
 host=
 database=
 ```
-Edit the database.ini file and fill in your credential for MySQL database connection
+Edit the database.ini file and fill in your credentials for your MySQL database connection
 #### example
 ```sh
 [credentials]
@@ -57,28 +57,28 @@ KEY2=
 KEY3=
 ```
 Edit the keys_config.ini file and fill in your <b>NYT API</b> key(s)           
-(Since we need to scrap the comments data from NYT, we need NYT API key(s) ) 
+(Since we need to gather comment data from NYT, we need NYT API key(s) ) 
 #### example
 ```sh
 KEY1=cksdh4934dkhf:0:2091
 KEY2=cksdh4934dkhf:0:2092
 ```
-### 4. Scrap comments data from New York Times to get the vocabulary and Document Count
-In order to run the API code we need to create vocabulary which are Uni-grams that occurred 10 or more time across all comments in the database. This Vocabulary is used to define a feature vector to describe each comment and article. It is advisable to get good amount of data like 3-6 months to get more accurate results.
+### 4. Collect comments data from New York Times to get the vocabulary that is used for text analysis calculations
+In order to run the API code we need to create vocabulary which are uni-grams that occurred 10 or more times across all comments in the database. This cocabulary is used to define a feature vector to describe each comment and article. It is advisable to get fair amount of data like 3-6 months worth of comments in order to get more accurate results. You might also consider updating your vocabulary periodically so that new words that are introduced in a news discourse can be accounted for. 
 ####
 Python script to perform this operation : NytApiCall_ComputeVocab.py
 ####Steps to Run NytApiCall_ComputeVocab.py :
 
 * Change the COMMUNITY_API_KEY_LIST in the code according to the number of keys you have. 
 * Make sure the Key-Value pair in the code and keys_config.ini file are in sync.
-* Each NYT API keys have a limit of 5000 calls per day.So please make sure the key limit does not exceed more than 5000.
+* Each NYT API keys have a limit of 5000 calls per day. So please make sure the key limit does not exceed more than 5000.
 
 The Code perform 3 operations :
 
 1) <b>CollectComments()</b> :                    
 * Upon running NytApiCall_ComputeVocab.py it will ask the user to enter start and end date. 
-* This function will scrap all the comments data from New york times as per the mentioned dates. 
-* The comments data will be stored in vocab_comments table. 
+* This function will collect all the comments data from the New York Times as per the mentioned dates. 
+* The comments data will be stored in the vocab_comments table. 
 * The offset value is 25 which means each call will fetch 25 comments. 
 * The user can also decrease the key_limit value if desired to run a small cycle.
 
@@ -88,7 +88,7 @@ The Code perform 3 operations :
 
 
 ###5.Run the CommentIQ API code
-The python-flask code : CommentIQ_API.py uses the subroutine - calculate_score.py and its functions to perform the calculations of all the 4 criteria. Look for in-line comments in order to understand the complete code.
+The python-flask code : CommentIQ_API.py uses the subroutine - calculate_score.py and its functions to perform the calculations of all the four criteria. Look for in-line comments in order to understand the complete code.
 
 run the code
 ```sh 
@@ -96,7 +96,7 @@ run the code
 ```
 This will start the flask server and you can start using the CommentIQ API.
 
-<b>Note: </b>For the local machine the base url will change according to your host name. For example most of the local machine will have local server running on 127.0.0.1:5000.  In this case the base url will be : http://127.0.0.1:5000/commentIQ/v1
+<b>Note: </b>For the local machine the base url will change according to your host name. For example most local machines will have local server running on 127.0.0.1:5000.  In this case the base url will be : http://127.0.0.1:5000/commentIQ/v1
 #####
 ###  Example
 ##### Python Code
