@@ -288,7 +288,7 @@ print response.json()
 
 ### 6. <a name="6"></a>Get Article Relevance Score
 #### 
-To get Article Relevance Score of a comment - Comment ID needs to be send via HTTP GET method. The Article Relevance score will be fetched and send via Response.
+To get the Article Relevance Score of a comment - the Comment ID needs to be sent via an HTTP GET method. The Article Relevance score will be fetched and sent via Response.
 
 
 | Name   | Values and Notes           |
@@ -328,7 +328,7 @@ print response.json()
 ```
 ### 7. <a name="7"></a>Get Conversational Relevance Score
 #### 
-To get Conversational Relevance Score of a comment - Comment ID needs to be send via HTTP GET method. The Conversational Relevance score will be fetched and send via Response.
+To get the Conversational Relevance Score of a comment - the Comment ID needs to be sent via HTTP GET method. The Conversational Relevance score will be fetched and sent via Response.
 
 
 | Name   | Values and Notes           |
@@ -369,7 +369,7 @@ print response.json()
 
 ### 8. <a name="8"></a>Get Personal Experience Score
 #### 
-To get Personal Experience Score of a comment - Comment ID needs to be send via HTTP GET method. The Personal Experience score will be fetched and send via Response.
+To get the Personal Experience Score of a comment - the Comment ID needs to be sent via HTTP GET method. The Personal Experience score will be fetched and sent via Response.
 
 
 | Name   | Values and Notes           |
@@ -411,7 +411,7 @@ print response.json()
 
 ### 9. <a name="9"></a>Get Readability Score
 #### 
-To get Readability Score of a comment - Comment ID needs to be send via HTTP GET method. The Readability score will be fetched and send via Response.
+To get the Readability Score of a comment - Comment ID needs to be sent via an HTTP GET method. The Readability score will be fetched and sent via Response.
 
 
 | Name   | Values and Notes           |
@@ -452,7 +452,7 @@ print response.json()
 
 ### 10. <a name="10"></a>Get All Scores
 #### 
-To get All Scores of a comment - Comment ID needs to be send via HTTP GET method. All the scores will be fetched and send via Response.
+To get All Scores of a comment - the Comment ID needs to be sent via HTTP GET method. All the scores will be fetched and sent via Response.
 
 
 | Name   | Values and Notes           |
@@ -497,4 +497,4 @@ print response.json()
 }        
 ```
 
-(Get API code and get it running on your machine. Follow the instructions <a href="https://github.com/comp-journalism/commentIQ/tree/master/CommentAPIcode" target="_blank">here</a> )
+To install the API code and run it locally on your own server follow the instructions <a href="https://github.com/comp-journalism/commentIQ/tree/master/CommentAPIcode" target="_blank">here</a>
