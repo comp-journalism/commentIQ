@@ -193,7 +193,7 @@ status = response.json()['status']
 ### 4. <a name="4"></a>Update Comment
 #### 
 To update comment - Comment Text and Comment ID nees to be sent via an HTTP POST method. All the scores will be calculated and sent via Response.           
-<b>Note: </b> It is important to update the API with comment text that has changed in order to calculate the correct Scores for a comment.
+<b>Note: </b> It is important to update the API with comment text that has changed in order to calculate the correct scores for a comment.
 
 
 | Name   | Values and Notes           |
@@ -247,8 +247,8 @@ status = response.json()['status']
 
 ### 5. <a name="5"></a>Delete Comment
 #### 
-To delete a comment - Comment ID needs to be send via HTTP GET method.           
-<b>Note: </b> Since Conversational Relevance depends upon all the previous comments, database needs to be updated with any deleted comment.
+To delete a comment - Comment ID needs to be sent via an HTTP GET method.           
+<b>Note: </b> Since Conversational Relevance depends upon all the previous comments, the database needs to be updated with any deleted comment(s).
 
 
 | Name   | Values and Notes           |
