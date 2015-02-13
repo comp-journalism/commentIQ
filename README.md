@@ -91,7 +91,7 @@ status = response.json()['status']
 ### 2. <a name="2"></a>Update Article
 #### 
 To update articles - updated article text and ArticleID needs to be send via HTTP POST method.                
-<b>Note: </b> It is important to update the API database with updated article text in order to calculate correct Article Relevance Score for a comment.
+<b>Note: </b> It is important to update the API database with updated article text if it changes in order to calculate correct Article Relevance Score for a comment.
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
