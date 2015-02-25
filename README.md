@@ -73,7 +73,7 @@ For new articles, article text needs to be sent via an HTTP POST method and an a
 ###  Example
 ##### Python Code
 ```sh
-imoport requests
+import requests
 import json
 
 your_article_text = "Your Article Text"
@@ -121,7 +121,7 @@ To update articles - updated article text and ArticleID needs to be send via HTT
 ###  Example
 ##### Python Code
 ```sh
-imoport requests
+import requests
 import json
 
 your_article_text = "Updated Article Text"
@@ -173,7 +173,7 @@ For new comments - Comment Text and Article ID need to be sent via an HTTP POST 
 ###  Example
 ##### Python Code
 ```sh
-imoport requests
+import requests
 import json
 
 your_comment_text = "Your Comment Text"
@@ -237,7 +237,7 @@ To update comment - Comment Text and Comment ID nees to be sent via an HTTP POST
 ###  Example
 ##### Python Code
 ```sh
-imoport requests
+import requests
 import json
 
 updated_comment_text = "Your Update Comment Text"
@@ -294,7 +294,7 @@ To delete a comment - Comment ID needs to be sent via an HTTP DELETE method.
 ###  Example
 ##### Python Code
 ```sh
-imoport requests
+import requests
 import json
 
 commentID = 172
@@ -337,7 +337,7 @@ To get the Article Relevance Score of a comment - the Comment ID needs to be sen
 ###  Example
 ##### Python Code
 ```sh
-imoport requests
+import requests
 import json
 
 commentID = 172
@@ -380,7 +380,7 @@ To get the Conversational Relevance Score of a comment - the Comment ID needs to
 ###  Example
 ##### Python Code
 ```sh
-imoport requests
+import requests
 import json
 
 commentID = 172
@@ -424,7 +424,7 @@ To get the Personal Experience Score of a comment - the Comment ID needs to be s
 ###  Example
 ##### Python Code
 ```sh
-imoport requests
+import requests
 import json
 
 commentID = 172
@@ -469,7 +469,7 @@ To get the Readability Score of a comment - Comment ID needs to be sent via an H
 ###  Example
 ##### Python Code
 ```sh
-imoport requests
+import requests
 import json
 
 commentID = 172
@@ -514,7 +514,7 @@ To get the Brevity Score of a comment - Comment ID needs to be sent via an HTTP 
 ###  Example
 ##### Python Code
 ```sh
-imoport requests
+import requests
 import json
 
 commentID = 172
