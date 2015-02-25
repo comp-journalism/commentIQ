@@ -2,11 +2,11 @@ CommentIQ API Code
 ========
 Get the code up and running on your machine in 5 steps :-                                             
 
-1. Install all the required packages
-2. Get the database and table structures
-3. Change the config files
-4. Collect comments data from New York Times to get a dataset that is used as the commenting vocabulary
-5. Run the CommentIQ API code to calculate scores
+1. Installing the required packages
+2. Get the database and table structure
+3. Edit the config files
+4. Collect comments data from New York Times to get the vocabulary that is used for text analysis calculations
+5. Run the CommentIQ API code
 
 
 ### 1. Installing the required packages
@@ -27,8 +27,8 @@ Please install the following softwares/packages before proceeding to step2
 ### 2. Get the database and table structure
 
 The structures for all database tables is present in a self contained SQL file - TableStructures.sql in the 'apidata' folder. The table structures need to be ready in order to run step 4.                 
-The TableStructures.sql can be imported in your database and executed to create all the table skeletons.
-
+The TableStructures.sql can be imported in your database and executed to create all the table skeletons.                               
+Follow the <a href="http://www.cyberciti.biz/faq/import-mysql-dumpfile-sql-datafile-into-my-database/" target="_blank">instructions</a> to import a MySQL Database.
 ### 3. Edit the config files
 
 There are two config files that need to be changed in order to run steps 4 and 5.
@@ -54,10 +54,10 @@ database=comment_iq
 [API-KEYS]
 KEY1=
 KEY2=
-KEY3=
 ```
 Edit the keys_config.ini file and fill in your <b>NYT API</b> key(s)           
-(Since we need to gather comment data from NYT, we need NYT API key(s) ) 
+(Since we need to gather comment data from NYT, we need NYT API key(s) )               
+Request for the NYT API keys <a href="http://developer.nytimes.com/docs/reference/keys" target="_blank">here</a>
 #### example
 ```sh
 KEY1=cksdh4934dkhf:0:2091
@@ -84,7 +84,7 @@ The Code perform 3 operations :
 
 2) <b>ComputeVocabulary() </b> : Get the frequency distribution of each word across all comments in the vocab_comments table and store in a JSON (vocab_freq.json).
 
-3) <b> getDocumentCount() </b> : Count the number of comments in the vocab_comments table and store in a text file which will be later used to calculate feature vector.
+3) <b> getDocumentCount() </b> : Count the number of comments in the vocab_comments table and store in a JSON(document_count.json) which will be later used to calculate feature vector.
 
 
 ###5.Run the CommentIQ API code
@@ -101,6 +101,9 @@ This will start the flask server and you can start using the CommentIQ API.
 ###  Example
 ##### Python Code
 ```sh
+import requests
+import json
+
 your_comment_text = "Your Comment Text"
 articleID = 78
 url = "http://127.0.0.1:5000/commentIQ/v1/addComment"
@@ -111,6 +114,7 @@ AR = response.json()['ArticleRelevance']
 CR = response.json()['ConversationalRelevance']
 personal_exp = response.json()['PersonalXP']
 readability = response.json()['Readability']
+brevity = response.json()['Brevity']
 commentID = response.json()['CommentID']
 status = response.json()['status']
 ```
@@ -121,6 +125,7 @@ status = response.json()['status']
     "ConversationalRelevance": "0.4046152704799379"
     "Readability": "0.0727272727273"
     "PersonalXP": "17.2"
+    "Brevity": "55"
     "status": "Insert Successful"
     "CommentID": "1714"
 }        

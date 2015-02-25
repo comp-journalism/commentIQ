@@ -227,11 +227,12 @@ def date_validate():
 # Count the number of comments and store in a text file
 def getDocumentCount():
     try:
-        text_file = open("apidata/count.txt", "w")
+        json_data = {}
+        output_json = open("apidata/document_count.json", "w")
         cursor.execute("select count(*) from vocab_comments")
-        for i in cursor:
-            text_file.write(str(i[0]))
-        text_file.close()
+        for count in cursor:
+            json_data['document_count'] = str(count[0])
+            json.dump(json_data,output_json)
     except:
         print error_name(g_day,g_offset)
         sys.exit(1)

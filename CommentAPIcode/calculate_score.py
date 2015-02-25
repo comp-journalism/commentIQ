@@ -28,14 +28,16 @@ vocab_freq = {}
 nDocuments = 0
 
 # JSON containing Frequency of each word
-json_data = open("apidata/vocab_freq.json")
+vocab_json_data = open("apidata/vocab_freq.json")
 
-vocab_freq = json.load(json_data)
+vocab_freq = json.load(vocab_json_data)
 
-count_read = open("apidata/count.txt", "r")
+document_count_json = open("apidata/document_count.json")
+
+count_read = json.load(document_count_json)
 
 # Total Number of comments collected
-nDocuments = int(count_read.read())
+nDocuments = int(count_read["document_count"])
 
 # List of Personal Words from LIWC dictionary
 with open("apidata/personal.txt") as f:
@@ -183,7 +185,7 @@ def ComputeCommentConversationalRelevance(comment_text,ID,operation):
         ConversationalRelevance = 0.0
         return ConversationalRelevance
     cnx.close
-    if len(comment_data) < 10:
+    if len(comment_data) < 2:
         ConversationalRelevance = 0.0
         return ConversationalRelevance
 
@@ -227,6 +229,7 @@ def ComputeCommentConversationalRelevance(comment_text,ID,operation):
                     log_fraction = Decimal(nDocuments) / Decimal(vocab_freq[w])
                 if w in comment_stemmed_tokens:
                     comment_features[w] = comment_stemmed_tokens_fd[w] * math.log(log_fraction)
+#                    print str(comment_features[w]) + " = " + str(comment_stemmed_tokens_fd[w]) + " * " + str(math.log(log_fraction))
                 else:
                     comment_features[w] = 0.0
     comment_features = NormalizeVector(comment_features)
@@ -256,8 +259,10 @@ def calcPersonalXPScores(comment_text):
             personal_xp_score = personal_xp_score + 1
 
     # normalize by number of tokens
-    personal_xp_score = float(personal_xp_score) / float(len(text_tokens))
-
+    if len(text_tokens) > 0:
+        personal_xp_score = float(personal_xp_score) / float(len(text_tokens))
+    else:
+        personal_xp_score = 0.0
     return personal_xp_score
 
 def calcReadability(comment_text):
@@ -275,13 +280,18 @@ def calcReadability(comment_text):
     readability_score = textstat.smog_index(text=text)
     return readability_score
 
+def calBrevity(comment_text):
+    token = CleanAndTokenize(comment_text)
+    return len(token)
+
 def updateComment(comment_text,commentID):
     operation = "update"
     ArticleRelevance = ComputeCommentArticleRelevance(comment_text,commentID,operation)
     ConversationalRelevance = ComputeCommentConversationalRelevance(comment_text,commentID,operation)
     PersonalXP = calcPersonalXPScores(comment_text)
     Readability = calcReadability(comment_text)
-    return (ArticleRelevance,ConversationalRelevance,PersonalXP,Readability)
+    Brevity = calBrevity(comment_text)
+    return (ArticleRelevance,ConversationalRelevance,PersonalXP,Readability,Brevity)
 
 def addComment(comment_text,articleID):
     operation = "add"
@@ -289,6 +299,7 @@ def addComment(comment_text,articleID):
     ConversationalRelevance = ComputeCommentConversationalRelevance(comment_text,articleID,operation)
     PersonalXP = calcPersonalXPScores(comment_text)
     Readability = calcReadability(comment_text)
-    return (ArticleRelevance,ConversationalRelevance,PersonalXP,Readability)
+    Brevity = calBrevity(comment_text)
+    return (ArticleRelevance,ConversationalRelevance,PersonalXP,Readability,Brevity)
 
 
