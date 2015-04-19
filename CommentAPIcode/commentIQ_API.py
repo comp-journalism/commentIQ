@@ -260,7 +260,7 @@ def getArticleRelevance(commentID):
             status = error_name()
     else:
         ArticleRelevance = 0.0
-        status = "Operation failed - Use HTTP DELETE method"
+        status = "Operation failed - Use HTTP GET method"
     return jsonify(ArticleRelevance = ArticleRelevance, status = status)
 
 # Return the Score of ConversationalRelevance for the comment
@@ -293,7 +293,7 @@ def getConversationalRelevance(commentID):
             ConversationalRelevance = 0.0
     else:
         ConversationalRelevance = 0.0
-        status = "Operation failed - Use HTTP DELETE method"
+        status = "Operation failed - Use HTTP GET method"
     return jsonify(ConversationalRelevance = ConversationalRelevance, status = status)
 
 # Return the Score of Personal Experience for the comment
@@ -326,7 +326,7 @@ def getPersonalXP(commentID):
             status = error_name()
     else:
         PersonalXP = 0.0
-        status = "Operation failed - Use HTTP DELETE method"
+        status = "Operation failed - Use HTTP GET method"
     return jsonify(PersonalXP = PersonalXP, status = status)
 
 # Return the Score of Readability for the comment
@@ -359,7 +359,7 @@ def getReadability(commentID):
             status = error_name()
     else:
         Readability = 0.0
-        status = "Operation failed - Use HTTP DELETE method"
+        status = "Operation failed - Use HTTP GET method"
     return jsonify(Readability = Readability, status = status)
 
 # Return the Score of Brevity for the comment
@@ -392,7 +392,7 @@ def getBrevity(commentID):
             status = error_name()
     else:
         Brevity = 0.0
-        status = "Operation failed - Use HTTP DELETE method"
+        status = "Operation failed - Use HTTP GET method"
     return jsonify(Brevity = Brevity, status = status)
 
 
@@ -443,7 +443,7 @@ def getScores(commentID):
         PersonalXP = 0.0
         Readability = 0.0
         Brevity = 0.0
-        status = "Operation failed - Use HTTP DELETE method"
+        status = "Operation failed - Use HTTP GET method"
     return jsonify(ArticleRelevance = ArticleRelevance, ConversationalRelevance = ConversationalRelevance, \
                    PersonalXP = PersonalXP, Readability = Readability, Brevity = Brevity, status = status)
 
