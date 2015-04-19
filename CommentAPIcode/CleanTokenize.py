@@ -21,15 +21,15 @@ def CleanAndTokenize(text):
     r = re.compile(r"[\r\n]+")
     text = re.sub(r, "", text)
     # get rid of em dashes
-    table = {
-        ord(u'\u2018') : u"'",
-        ord(u'\u2019') : u"'",
-        ord(u'\u201C') : u'"',
-        ord(u'\u201d') : u'"',
-        ord(u'\u2026') : u'',
-        ord(u'\u2014') : u'',
-    }
-    text = text.translate(table)
+    # table = {
+    #     ord(u'\u2018') : u"'",
+    #     ord(u'\u2019') : u"'",
+    #     ord(u'\u201C') : u'"',
+    #     ord(u'\u201d') : u'"',
+    #     ord(u'\u2026') : u'',
+    #     ord(u'\u2014') : u'',
+    # }
+    # text = text.translate(table)
 
     # Normalize contractions
     # e.g. can't => can not, it's => it is, he'll => he will

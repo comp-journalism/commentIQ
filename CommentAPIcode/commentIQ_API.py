@@ -4,13 +4,14 @@ __author__ = 'ssachar'
 # The response keys and values depends upon the end points requested
 # subroutine used - calculate_score.py
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, make_response
 import time
 import mysql.connector
 import json
 from mysql.connector.errors import Error
 from calculate_score import error_name, escape_string, addComment, updateComment
 from ConfigParser import SafeConfigParser
+import json
 
 app = Flask(__name__)
 app.debug = True
@@ -26,8 +27,6 @@ password = parser.get('credentials', 'password')
 host = parser.get('credentials', 'host')
 database = parser.get('credentials', 'database')
 
-cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
-cursor = cnx.cursor()
 
 #Add the article Text and return the ArticleID
 @app.route('/commentIQ/v1/addArticle', methods=['GET', 'POST', 'DELETE'])
@@ -38,12 +37,19 @@ def addArticle():
             data = request.data
             dataDict = json.loads(data)
             article_text = escape_string(dataDict['article_text'].strip())
+
+            cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
+            cursor = cnx.cursor()
+
             insert_query = "INSERT INTO articles (pubDate, full_text)" \
                                         " VALUES('%s', '%s')" % \
                                         (current_time, article_text)
             cursor.execute(insert_query)
             articleID = cursor.lastrowid
             rowsaffected = cursor.rowcount
+ #           cnx.commit()
+            cnx.close
+
             if rowsaffected == 1:
                 status = "Add Successful"
             else:
@@ -66,10 +72,17 @@ def updateArticle():
             dataDict = json.loads(data)
             articleID = dataDict['articleID']
             article_text = escape_string(dataDict['article_text'].strip())
+
+            cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
+            cursor = cnx.cursor()
+
             update = "update articles set full_text = '"+ article_text +"' " \
                      " where articleID = '"+ str(articleID) +"' "
             cursor.execute(update)
             rowsaffected = cursor.rowcount
+
+            cnx.close
+
             if rowsaffected == 1:
                 status = "Update Successful"
             else:
@@ -90,6 +103,10 @@ def AddComment():
             articleID = dataDict['articleID']
             commentBody = escape_string(dataDict['commentBody'].strip())
             current_time = time.strftime("%Y-%m-%d %I:%M:%S")
+
+            cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
+            cursor = cnx.cursor()
+
             cursor.execute("select count(*) from articles where articleID = '"+ str(articleID) +"' ")
             count = cursor.fetchall()[0][0]
             if count < 1 :
@@ -108,11 +125,12 @@ def AddComment():
                 CommentID = cursor.lastrowid
 #                cnx.commit()
                 rowsaffected = cursor.rowcount
+                cnx.close
                 if rowsaffected == 1:
                     status = "Add Successful"
                 else:
                     status = "Add failed"
-                cnx.close
+
         except:
             ArticleRelevance = 0.0
             ConversationalRelevance = 0.0
@@ -148,6 +166,9 @@ def UpdateComments():
             ArticleRelevance, ConversationalRelevance, PersonalXP, Readability, Brevity  = \
             updateComment(commentBody,commentID)
 
+            cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
+            cursor = cnx.cursor()
+
             update = "update comments set ArticleRelevance = '"+ str(ArticleRelevance) +"', " \
                      "ConversationalRelevance = '"+ str(ConversationalRelevance) +"' , " \
                      "PersonalXP = '"+ str(PersonalXP) +"', Readability = '"+ str(Readability) +"'," \
@@ -155,6 +176,9 @@ def UpdateComments():
                      " where commentID = '"+ str(commentID) +"' "
             cursor.execute(update)
             rowsaffected = cursor.rowcount
+
+            cnx.close
+
             if rowsaffected == 1:
                 status = "Update Successful"
             else:
@@ -186,9 +210,16 @@ def deleteComment(commentID):
                 commentID = str(commentID)
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
+
+            cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
+            cursor = cnx.cursor()
+
             delete = "delete from comments where commentID = '"+ commentID +"'"
             cursor.execute(delete)
             rowsaffected = cursor.rowcount
+
+            cnx.close
+
             if rowsaffected == 1:
                 status = "Delete successful"
             else:
@@ -208,9 +239,16 @@ def getArticleRelevance(commentID):
                 commentID = str(commentID)
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
+
+            cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
+            cursor = cnx.cursor()
+
             cursor.execute("select ArticleRelevance from comments where commentID = '" + commentID + "' ")
             scores = cursor.fetchall()
             rowsaffected = cursor.rowcount
+
+            cnx.close
+
             if rowsaffected == 1:
                 status = "success"
                 ArticleRelevance = scores[0][0]
@@ -234,9 +272,16 @@ def getConversationalRelevance(commentID):
                 commentID = str(commentID)
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
+
+            cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
+            cursor = cnx.cursor()
+
             cursor.execute("select ConversationalRelevance from comments where commentID = '" + commentID + "' ")
             scores = cursor.fetchall()
             rowsaffected = cursor.rowcount
+
+            cnx.close
+
             if rowsaffected == 1:
                 status = "success"
                 ConversationalRelevance = scores[0][0]
@@ -260,9 +305,16 @@ def getPersonalXP(commentID):
                 commentID = str(commentID)
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
+
+            cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
+            cursor = cnx.cursor()
+
             cursor.execute("select PersonalXP from comments where commentID = '" + commentID + "' ")
             scores = cursor.fetchall()
             rowsaffected = cursor.rowcount
+
+            cnx.close
+
             if rowsaffected == 1:
                 status = "success"
                 PersonalXP = scores[0][0]
@@ -286,9 +338,16 @@ def getReadability(commentID):
                 commentID = str(commentID)
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
+
+            cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
+            cursor = cnx.cursor()
+
             cursor.execute("select Readability from comments where commentID = '" + commentID + "' ")
             scores = cursor.fetchall()
             rowsaffected = cursor.rowcount
+
+            cnx.close
+
             if rowsaffected == 1:
                 status = "success"
                 Readability = scores[0][0]
@@ -312,9 +371,16 @@ def getBrevity(commentID):
                 commentID = str(commentID)
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
+
+            cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
+            cursor = cnx.cursor()
+
             cursor.execute("select Brevity from comments where commentID = '" + commentID + "' ")
             scores = cursor.fetchall()
             rowsaffected = cursor.rowcount
+
+            cnx.close
+
             if rowsaffected == 1:
                 status = "success"
                 Brevity = scores[0][0]
@@ -339,10 +405,17 @@ def getScores(commentID):
                 commentID = str(commentID)
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
+
+            cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
+            cursor = cnx.cursor()
+
             cursor.execute("select ArticleRelevance,ConversationalRelevance,PersonalXP,Readability, Brevity " \
                            "from comments where commentID = '" + commentID + "' ")
             scores = cursor.fetchall()
             rowsaffected = cursor.rowcount
+
+            cnx.close
+
             if rowsaffected == 1:
                 status = "success"
                 ArticleRelevance = scores[0][0]
@@ -374,6 +447,13 @@ def getScores(commentID):
     return jsonify(ArticleRelevance = ArticleRelevance, ConversationalRelevance = ConversationalRelevance, \
                    PersonalXP = PersonalXP, Readability = Readability, Brevity = Brevity, status = status)
 
+@app.route('/commentIQ/v1/getVocabulary',methods=['GET', 'POST', 'DELETE'])
+def getVocab():
+    vocab_json_data = open("apidata/vocab_freq.json")
+    vocab_freq = json.load(vocab_json_data)
+    response = make_response(jsonify(vocab_freq))
+    response.headers["Content-Disposition"] = "attachment; filename=vocab_freq.json"
+    return response
 
 if __name__ == '__main__':
     app.run()

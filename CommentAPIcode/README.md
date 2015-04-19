@@ -64,7 +64,8 @@ KEY1=cksdh4934dkhf:0:2091
 KEY2=cksdh4934dkhf:0:2092
 ```
 ### 4. Collect comments data from New York Times to get the vocabulary that is used for text analysis calculations
-In order to run the API code we need to create vocabulary which are uni-grams that occurred 10 or more times across all comments in the database. This cocabulary is used to define a feature vector to describe each comment and article. It is advisable to get fair amount of data like 3-6 months worth of comments in order to get more accurate results. You might also consider updating your vocabulary periodically so that new words that are introduced in a news discourse can be accounted for. 
+In order to run the API code we need to create vocabulary which are uni-grams that occurred 10 or more times across all comments in the database. This vocabulary is used to define a feature vector to describe each comment and article. It is advisable to get fair amount of data like 3 months worth of comments in order to get more accurate results. You might also consider updating your vocabulary periodically so that new words that are introduced in a news discourse can be accounted for. 
+For convenience you can download the vocabulary(vocab_freq.json) from <a href="http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getVocabulary" target="_blank">here</a> and store in the 'apidata' folder or you can create your own vocabulary by following the steps below
 ####
 Python script to perform this operation : NytApiCall_ComputeVocab.py
 ####Steps to Run NytApiCall_ComputeVocab.py :
@@ -73,18 +74,21 @@ Python script to perform this operation : NytApiCall_ComputeVocab.py
 * Make sure the Key-Value pair in the code and keys_config.ini file are in sync.
 * Each NYT API keys have a limit of 5000 calls per day. So please make sure the key limit does not exceed more than 5000.
 
-The Code perform 3 operations :
+The Code perform 4 operations :
 
-1) <b>CollectComments()</b> :                    
+1) <b>user_input() </b> : Ask the user - start date, end date and offset value of their choice.
+
+2) <b>CollectComments()</b> :                    
 * Upon running NytApiCall_ComputeVocab.py it will ask the user to enter start and end date. 
 * This function will collect all the comments data from the New York Times as per the mentioned dates. 
 * The comments data will be stored in the vocab_comments table. 
 * The offset value is 25 which means each call will fetch 25 comments. 
 * The user can also decrease the key_limit value if desired to run a small cycle.
+* Maintain dictionary worth 3 months of latest comments data (comments data of more than 3 month will be deleted).
 
-2) <b>ComputeVocabulary() </b> : Get the frequency distribution of each word across all comments in the vocab_comments table and store in a JSON (vocab_freq.json).
+3) <b>ComputeVocabulary() </b> : Get the frequency distribution of each word across all comments in the vocab_comments table and store in a JSON (vocab_freq.json).
 
-3) <b> getDocumentCount() </b> : Count the number of comments in the vocab_comments table and store in a JSON(document_count.json) which will be later used to calculate feature vector.
+4) <b> getDocumentCount() </b> : Count the number of comments in the vocab_comments table and store in a JSON(document_count.json) which will be later used to calculate feature vector.
 
 
 ###5.Run the CommentIQ API code

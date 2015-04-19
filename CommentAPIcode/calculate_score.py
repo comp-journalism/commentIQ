@@ -237,8 +237,8 @@ def ComputeCommentConversationalRelevance(comment_text,ID,operation):
     return comment_originality
 
 def calcPersonalXPScores(comment_text):
-
-    tokenizer = WhitespaceTokenizer()
+    # comment_text = comment_text.decode("utf-8")
+    # tokenizer = WhitespaceTokenizer()
     personal_xp_score = 0
     text = comment_text.lower()
 
@@ -250,8 +250,9 @@ def calcPersonalXPScores(comment_text):
             text = text.replace(p, " ")
 
     # tokenize it
-    text_tokens = tokenizer.tokenize(text)
-
+    token_list = CleanAndTokenize(comment_text)
+    text_tokens = token_list
+    # comment_stemmed_tokens = [porter.stem(token) for token in token_list]
     # if the tokens are in the personal_words List then increment score
     for tok in text_tokens:
         tok_stem = porter.stem(tok)
