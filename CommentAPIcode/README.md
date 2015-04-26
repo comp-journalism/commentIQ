@@ -29,7 +29,7 @@ Please install the following softwares/packages before proceeding to step2
 The structures for all database tables is present in a self contained SQL file, TableStructures.sql, in the 'apidata' folder. 
 You need to import these table structures into your database in order to run step 4. 
                 
-The TableStructures.sql can be imported in your database and executed to create all the table skeletons. Follow the <a href="http://www.cyberciti.biz/faq/import-mysql-dumpfile-sql-datafile-into-my-database/" target="_blank">instructions</a> to import a MySQL Database.
+The TableStructures.sql can be imported in your database to create all the table skeletons. Follow the <a href="http://www.cyberciti.biz/faq/import-mysql-dumpfile-sql-datafile-into-my-database/" target="_blank">instructions</a> to import a MySQL Database.
 
 ### 3. Edit the config files
 
