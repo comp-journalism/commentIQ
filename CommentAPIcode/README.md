@@ -53,8 +53,9 @@ keys_config.ini
 KEY1=
 KEY2=
 ```
-Edit the keys_config.ini file and fill in your <b>NYT API</b> key(s). 
+Edit the keys_config.ini file and fill in your NYT API key(s). 
 ```sh
+[API-KEYS]
 KEY1=cksdh4934dkhf:0:2091
 KEY2=cksdh4934dkhf:0:2092
 ```
