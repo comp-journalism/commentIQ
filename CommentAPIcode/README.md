@@ -4,7 +4,7 @@ Get the code up and running on your machine in 5 steps:
 
 1. Installing the required packages
 2. Setup your database and table structure
-3. Collect comments data from New York Times to get the vocabulary that is used for text analysis calculations (optional)
+3. Create a vocabulary (optional)
 4. Run the CommentIQ API code
 
 
