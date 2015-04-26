@@ -24,17 +24,15 @@ Please install the following softwares/packages before proceeding to step2
 * ConfigParser (if not included in default python libraries)
 
 
-### 2. Get the database and table structure
+### 2. Setup your database and table structure
 
 The structures for all database tables is present in a self contained SQL file, TableStructures.sql, in the 'apidata' folder. 
-You need to import these table structures into your database in order to run step 4. 
+You need to import these table structures into your database in order to run step 3. 
                 
 The TableStructures.sql can be imported in your database to create all the table skeletons. Follow the <a href="http://www.cyberciti.biz/faq/import-mysql-dumpfile-sql-datafile-into-my-database/" target="_blank">instructions</a> to import a MySQL Database.
 
-### 3. Edit the config files
-
-There are two config files that need to be changed in order to run steps 4 and 5.
-#### 1) database.ini
+Then you need to edit a config file with the connection settings to your database:
+database.ini
 ```sh
 [credentials]
 user=
@@ -51,7 +49,14 @@ password=nash
 host=127.0.0.1
 database=comment_iq
 ```
-#### 2) keys_config.ini
+
+### 3. Collect comments data from New York Times to get the vocabulary that is used for text analysis calculations (optional)
+In order to run the API code we need to create vocabulary which are uni-grams that occurred 10 or more times across all comments in the database. This vocabulary is used to define a feature vector to describe each comment and article. It is advisable to get fair amount of data like 3 months worth of comments in order to get more accurate results. You might also consider updating your vocabulary periodically so that new words that are introduced in a news discourse can be accounted for. 
+
+For convenience, and to get started with the API quickly, a vocabulary file is provide when you check out the project. It's called vocab_freq.json and is within the 'apidata' folder. You can also download that file <a href="http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getVocabulary" target="_blank">here</a>. However, for the best results we recommend that you create your own vocabulary. 
+
+To create the vocabulary using the NYT API, you first need to edit the config file with your credentials to access that API:
+keys_config.ini
 ```sh
 [API-KEYS]
 KEY1=
@@ -65,9 +70,7 @@ Request for the NYT API keys <a href="http://developer.nytimes.com/docs/referenc
 KEY1=cksdh4934dkhf:0:2091
 KEY2=cksdh4934dkhf:0:2092
 ```
-### 4. Collect comments data from New York Times to get the vocabulary that is used for text analysis calculations
-In order to run the API code we need to create vocabulary which are uni-grams that occurred 10 or more times across all comments in the database. This vocabulary is used to define a feature vector to describe each comment and article. It is advisable to get fair amount of data like 3 months worth of comments in order to get more accurate results. You might also consider updating your vocabulary periodically so that new words that are introduced in a news discourse can be accounted for. 
-For convenience you can download the vocabulary, vocab_freq.json, from <a href="http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getVocabulary" target="_blank">here</a> and store in the 'apidata' folder or you can create your own vocabulary by following the steps below
+
 ####
 Python script to perform this operation : NytApiCall_ComputeVocab.py
 ####Steps to Run NytApiCall_ComputeVocab.py :
