@@ -39,8 +39,8 @@ host=127.0.0.1
 database=comment_iq
 ```
 
-### 3. Collect comments data from New York Times to get the vocabulary that is used for text analysis calculations (optional)
-In order to run the API code we need to create vocabulary which are uni-grams that occurred 10 or more times across all comments in the database. This vocabulary is used to define a feature vector to describe each comment and article. It is advisable to get fair amount of data like 3 months worth of comments in order to get more accurate results. You might also consider updating your vocabulary periodically so that new words that are introduced in a news discourse can be accounted for. 
+### 3. Create a vocabulary (optional)
+In order to run the API code we need to create a vocabulary of unigram which is used in calculating scores. This vocabulary is used to define a feature vector to describe each comment and article. It is advisable to get fair amount of data like 3 months worth of comments in order to get more accurate results. You might also consider updating your vocabulary periodically so that new words that are introduced in a news discourse can be accounted for. 
 
 For convenience, and to get started with the API quickly, a vocabulary file is provide when you check out the project. It's called vocab_freq.json and is within the 'apidata' folder. You can also download that file <a href="http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getVocabulary" target="_blank">here</a>. However, for the best results we recommend that you create your own vocabulary. 
 
