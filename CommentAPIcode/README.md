@@ -3,10 +3,9 @@ CommentIQ API Code
 Get the code up and running on your machine in 5 steps:                                            
 
 1. Installing the required packages
-2. Get the database and table structure
-3. Edit the config files
-4. Collect comments data from New York Times to get the vocabulary that is used for text analysis calculations
-5. Run the CommentIQ API code
+2. Setup your database and table structure
+3. Collect comments data from New York Times to get the vocabulary that is used for text analysis calculations (optional)
+4. Run the CommentIQ API code
 
 
 ### 1. Installing the required packages
@@ -31,17 +30,7 @@ You need to import these table structures into your database in order to run ste
                 
 The TableStructures.sql can be imported in your database to create all the table skeletons. Follow the <a href="http://www.cyberciti.biz/faq/import-mysql-dumpfile-sql-datafile-into-my-database/" target="_blank">instructions</a> to import a MySQL Database.
 
-Then you need to edit a config file with the connection settings to your database:
-database.ini
-```sh
-[credentials]
-user=
-password=
-host=
-database=
-```
-Edit the database.ini file and fill in your credentials for your MySQL database connection
-#### example
+Then, edit the database.ini file and fill in your credentials for your MySQL database connection
 ```sh
 [credentials]
 user=john
@@ -55,7 +44,7 @@ In order to run the API code we need to create vocabulary which are uni-grams th
 
 For convenience, and to get started with the API quickly, a vocabulary file is provide when you check out the project. It's called vocab_freq.json and is within the 'apidata' folder. You can also download that file <a href="http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getVocabulary" target="_blank">here</a>. However, for the best results we recommend that you create your own vocabulary. 
 
-To create the vocabulary using the NYT API, you first need to edit the config file with your credentials to access that API:
+To create the vocabulary using the NYT API, you first need to edit a config file with your credentials to access that API:
 keys_config.ini
 ```sh
 [API-KEYS]
