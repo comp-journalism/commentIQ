@@ -15,9 +15,9 @@ Please install the following softwares/packages before proceeding to step2
 * Python 2.7
 * Apache server (or any other server to run flask)
 * flask
-* <a href="http://dev.mysql.com/downloads/mysql/">NLTK</a>
+* NLTK
 * NLTK corpus for 'stop words', e.g. ``python -m nltk.downloader``
-* MySQL
+* <a href="http://dev.mysql.com/downloads/mysql/">MySQL</a>
 * MySQL Python connector, e.g. ``pip install mysql-connector-python --allow-external mysql-connector-python``
 * BeautifulSoup(bs4)
 * ConfigParser (if not included in default python libraries)
