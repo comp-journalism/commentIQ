@@ -3,7 +3,7 @@
 The Comment IQ API is a RESTful API used to evaluate comments on news articles and return scores based on four criteria shown to correlate with higher quality comments: Article Relevance, Conversational Relevance, Personal Experience, and Readability. 
 These four criteria are explained briefly below, and in more detail in two research papers (including their validation as measures of higher quality comments):
 * N. Diakopoulos. The Editor’s Eye: Curation and Comment Relevance on the New York Times. Proc. Conference on Computer Supported Cooperative Work (CSCW). 2015. [<a href="http://www.nickdiakopoulos.com/wp-content/uploads/2011/07/the_editors_eye_final.pdf">PDF</a>]
-* N. Diakopoulos. Picking the NYT Picks: Editorial Criteria and Automation in the Curation of Online News Comments. #ISOJ Journal. 2015. 
+* N. Diakopoulos. Picking the NYT Picks: Editorial Criteria and Automation in the Curation of Online News Comments. #ISOJ Journal. 2015. [<a href="http://www.nickdiakopoulos.com/wp-content/uploads/2011/07/ISOJ_Journal_V5_N1_2015_Spring_Diakopoulos_Picking-NYT-Picks.pdf">PDF</a>]
 
 To install the API code and run it locally on your own server follow the instructions <a href="https://github.com/comp-journalism/commentIQ/tree/master/CommentAPIcode" target="_blank">here</a>
 
