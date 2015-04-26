@@ -67,7 +67,7 @@ KEY2=cksdh4934dkhf:0:2092
 ```
 ### 4. Collect comments data from New York Times to get the vocabulary that is used for text analysis calculations
 In order to run the API code we need to create vocabulary which are uni-grams that occurred 10 or more times across all comments in the database. This vocabulary is used to define a feature vector to describe each comment and article. It is advisable to get fair amount of data like 3 months worth of comments in order to get more accurate results. You might also consider updating your vocabulary periodically so that new words that are introduced in a news discourse can be accounted for. 
-For convenience you can download the vocabulary(vocab_freq.json) from <a href="http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getVocabulary" target="_blank">here</a> and store in the 'apidata' folder or you can create your own vocabulary by following the steps below
+For convenience you can download the vocabulary, vocab_freq.json, from <a href="http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getVocabulary" target="_blank">here</a> and store in the 'apidata' folder or you can create your own vocabulary by following the steps below
 ####
 Python script to perform this operation : NytApiCall_ComputeVocab.py
 ####Steps to Run NytApiCall_ComputeVocab.py :
