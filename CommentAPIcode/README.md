@@ -44,16 +44,16 @@ In order to run the API code we need to create a vocabulary of unigram which is 
 
 For convenience, and to get started with the API quickly, a vocabulary file is provide when you check out the project. It's called vocab_freq.json and is within the 'apidata' folder. You can also download that file <a href="http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getVocabulary" target="_blank">here</a>. However, for the best results we recommend that you create your own vocabulary. 
 
-To create the vocabulary using the NYT API, you first need to edit a config file with your credentials to access that API:
+NYT API access is necessary to download comment data that is processed to produce a vocabulary. To request NYT API keys see <a href="http://developer.nytimes.com/docs/reference/keys" target="_blank">here</a>
+
+To create the vocabulary using the NYT API, you need to edit a config file with your credentials to access that API:
 keys_config.ini
 ```sh
 [API-KEYS]
 KEY1=
 KEY2=
 ```
-Edit the keys_config.ini file and fill in your <b>NYT API</b> key(s). NYT API access is necessary to download comment data that is processed to produce a vocabulary. To request NYT API keys see <a href="http://developer.nytimes.com/docs/reference/keys" target="_blank">here</a>
-
-#### example
+Edit the keys_config.ini file and fill in your <b>NYT API</b> key(s). 
 ```sh
 KEY1=cksdh4934dkhf:0:2091
 KEY2=cksdh4934dkhf:0:2092
