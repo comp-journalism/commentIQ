@@ -1,6 +1,6 @@
 CommentIQ API Code
 ========
-Get the code up and running on your machine in 5 steps :-                                             
+Get the code up and running on your machine in 5 steps:                                            
 
 1. Installing the required packages
 2. Get the database and table structure
