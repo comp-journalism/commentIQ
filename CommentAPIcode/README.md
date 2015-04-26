@@ -71,9 +71,8 @@ Python script to perform this operation : NytApiCall_ComputeVocab.py
 The Code perform 4 operations :
 
 1. <b>user_input() </b> : Ask the user - start date, end date and offset value of their choice.
-
 2. <b>CollectComments()</b> :                    
-* Upon running NytApiCall_ComputeVocab.py it will ask the user to enter start and end date. 
+                Upon running NytApiCall_ComputeVocab.py it will ask the user to enter start and end date. 
 * This function will collect all the comments data from the New York Times as per the mentioned dates. 
 * The comments data will be stored in the vocab_comments table. 
 * The offset value is 25 which means each call will fetch 25 comments. 
