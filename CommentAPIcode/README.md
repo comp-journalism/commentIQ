@@ -51,9 +51,8 @@ keys_config.ini
 KEY1=
 KEY2=
 ```
-Edit the keys_config.ini file and fill in your <b>NYT API</b> key(s)           
-(Since we need to gather comment data from NYT, we need NYT API key(s) )               
-Request for the NYT API keys <a href="http://developer.nytimes.com/docs/reference/keys" target="_blank">here</a>
+Edit the keys_config.ini file and fill in your <b>NYT API</b> key(s). NYT API access is necessary to download comment data that is processed to produce a vocabulary. To request NYT API keys see <a href="http://developer.nytimes.com/docs/reference/keys" target="_blank">here</a>
+
 #### example
 ```sh
 KEY1=cksdh4934dkhf:0:2091
