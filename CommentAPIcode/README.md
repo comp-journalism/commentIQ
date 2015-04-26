@@ -85,8 +85,8 @@ The Code perform 4 operations :
 4) <b> getDocumentCount() </b> : Count the number of comments in the vocab_comments table and store in a JSON(document_count.json) which will be later used to calculate feature vector.
 
 
-###5.Run the CommentIQ API code
-The python-flask code : CommentIQ_API.py uses the subroutine - calculate_score.py and its functions to perform the calculations of all the four criteria. Look for in-line comments in order to understand the complete code.
+###4.Run the CommentIQ API code
+The python-flask code, CommentIQ_API.py, uses the subroutine, calculate_score.py, and its functions to perform the calculations of all of the criteria. Look for inline comments in order to understand the complete code.
 
 run the code
 ```sh 
