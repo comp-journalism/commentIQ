@@ -8,7 +8,7 @@ Get the code up and running on your machine in 5 steps:
 4. Run the CommentIQ API code
 
 
-### 1. Installing the required packages
+### 1. Install the required packages
 
 Please install the following softwares/packages before proceeding to step2
 
