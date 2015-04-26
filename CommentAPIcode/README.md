@@ -14,7 +14,7 @@ Please install the following softwares/packages before proceeding to step2
 
 * Python 2.7
 * Apache server (or any other server to run flask)
-* flask
+* Flask
 * NLTK
 * NLTK corpus for 'stop words', e.g. ``python -m nltk.downloader``
 * <a href="http://dev.mysql.com/downloads/mysql/">MySQL</a>
