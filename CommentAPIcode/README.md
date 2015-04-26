@@ -74,15 +74,12 @@ The Code perform 4 operations :
 2. <b>CollectComments()</b> :                    
     * Upon running NytApiCall_ComputeVocab.py it will ask the user to enter start and end date. 
     * This function will collect all the comments data from the New York Times as per the mentioned dates. 
-* The comments data will be stored in the vocab_comments table. 
-* The offset value is 25 which means each call will fetch 25 comments. 
-* The user can also decrease the key_limit value if desired to run a small cycle.
-* Maintain dictionary worth 3 months of latest comments data (comments data of more than 3 month will be deleted).
-
+    * The comments data will be stored in the vocab_comments table. 
+    * The offset value is 25 which means each call will fetch 25 comments. 
+    * The user can also decrease the key_limit value if desired to run a small cycle.
+    * Maintain dictionary worth 3 months of latest comments data (comments data of more than 3 month will be deleted).
 3. <b>ComputeVocabulary() </b> : Get the frequency distribution of each word across all comments in the vocab_comments table and store in a JSON (vocab_freq.json).
-
 4. <b> getDocumentCount() </b> : Count the number of comments in the vocab_comments table and store in a JSON(document_count.json) which will be later used to calculate feature vector.
-
 
 ###4.Run the CommentIQ API code
 The python-flask code, CommentIQ_API.py, uses the subroutine, calculate_score.py, and its functions to perform the calculations of all of the criteria. Look for inline comments in order to understand the complete code.
