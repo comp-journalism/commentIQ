@@ -18,7 +18,7 @@ Please install the following softwares/packages before proceeding to step2
 * <a href="http://dev.mysql.com/downloads/mysql/">NLTK</a>
 * NLTK corpus for 'stop words', e.g. ``python -m nltk.downloader``
 * MySQL
-* MySQL Python connector
+* MySQL Python connector, e.g. ``pip install mysql-connector-python --allow-external mysql-connector-python``
 * BeautifulSoup(bs4)
 * ConfigParser (if not included in default python libraries)
 
