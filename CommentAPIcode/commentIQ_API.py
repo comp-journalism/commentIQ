@@ -27,7 +27,6 @@ password = parser.get('credentials', 'password')
 host = parser.get('credentials', 'host')
 database = parser.get('credentials', 'database')
 
-
 #Add the article Text and return the ArticleID
 @app.route('/commentIQ/v1/addArticle', methods=['GET', 'POST', 'DELETE'])
 def addArticle():
@@ -39,15 +38,17 @@ def addArticle():
             article_text = escape_string(dataDict['article_text'].strip())
 
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
+
             cursor = cnx.cursor()
 
             insert_query = "INSERT INTO articles (pubDate, full_text)" \
                                         " VALUES('%s', '%s')" % \
                                         (current_time, article_text)
+
             cursor.execute(insert_query)
             articleID = cursor.lastrowid
             rowsaffected = cursor.rowcount
- #           cnx.commit()
+            cnx.commit()
             cnx.close
 
             if rowsaffected == 1:
