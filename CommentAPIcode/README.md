@@ -68,18 +68,18 @@ Python script to perform this operation : NytApiCall_ComputeVocab.py
 * Make sure the Key-Value pair in the code and keys_config.ini file are in sync.
 * Each NYT API keys have a limit of 5000 calls per day. So please make sure the key limit does not exceed more than 5000.
 
-The Code perform 4 operations :
+The Code perform 4 operations:
 
-1. <b>user_input() </b> : Ask the user - start date, end date and offset value of their choice.
-2. <b>CollectComments()</b> :                    
+1. User Input: The user specifies a starting date, ending date, offset value of their choice, which specifis the range of data to collect
+2. Collect Comments:                    
     * Upon running NytApiCall_ComputeVocab.py it will ask the user to enter start and end date. 
     * This function will collect all the comments data from the New York Times as per the mentioned dates. 
     * The comments data will be stored in the vocab_comments table. 
     * The offset value is 25 which means each call will fetch 25 comments. 
     * The user can also decrease the key_limit value if desired to run a small cycle.
-    * Maintain dictionary worth 3 months of latest comments data (comments data of more than 3 month will be deleted).
-3. <b>ComputeVocabulary() </b> : Get the frequency distribution of each word across all comments in the vocab_comments table and store in a JSON (vocab_freq.json).
-4. <b> getDocumentCount() </b> : Count the number of comments in the vocab_comments table and store in a JSON(document_count.json) which will be later used to calculate feature vector.
+    * Maintains a dictionary of 3 months worth of latest comments data (comments data of more than 3 month will be deleted).
+3. Compute Vocabulary: Gets the frequency distribution of each word across all comments in the vocab_comments table and stores in a JSON for later reference (vocab_freq.json).
+4. Get Document Count: Counts the number of comments in the vocab_comments table and stores in a JSON (document_count.json) which will be later used to calculate feature vectors.
 
 ###4. Run the CommentIQ API code
 The python-flask code, CommentIQ_API.py, uses the subroutine, calculate_score.py, and its functions to perform the calculations of all of the criteria. Look for inline comments in order to understand the complete code.
