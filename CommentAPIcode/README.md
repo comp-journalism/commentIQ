@@ -21,6 +21,7 @@ Please install the following softwares/packages before proceeding to step2
 * MySQL Python connector, e.g. ``pip install mysql-connector-python --allow-external mysql-connector-python``
 * BeautifulSoup (bs4), e.g. ``pip install beautifulsoup4``
 * ConfigParser (if not included in default python libraries)
+* Requests (optional, if following example code below) e.g. ``pip install requests``
 
 
 ### 2. Setup your database and table structure
