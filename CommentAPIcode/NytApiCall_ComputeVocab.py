@@ -42,7 +42,7 @@ key_list =  parserkeys.options('API-KEYS')
 COMMUNITY_API_KEY_LIST = [parserkeys.get('API-KEYS', key) for key in key_list]
 
 
-key_limit = 4000
+key_limit = 4999
 
 doc_frequency = {}
 stopword_list = stopwords.words('english')
