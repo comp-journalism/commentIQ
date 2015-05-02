@@ -1,3 +1,9 @@
+-- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+--
+-- Host: awsdbinstance.cz5m3w6kwml8.us-east-1.rds.amazonaws.com    Database: comment_iq
+-- ------------------------------------------------------
+-- Server version	5.6.19-log
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -20,11 +26,9 @@ CREATE TABLE `articles` (
   `articleID` int(11) NOT NULL AUTO_INCREMENT,
   `pubDate` datetime DEFAULT NULL,
   `headline` text,
-  `materialType` text,
-  `snippet` text,
   `full_text` text,
   PRIMARY KEY (`articleID`)
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -34,27 +38,24 @@ CREATE TABLE `articles` (
 DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cname_comments` (
+CREATE TABLE `comments` (
   `commentID` int(11) NOT NULL AUTO_INCREMENT,
-  `commentTitle` text,
   `commentBody` text,
-  `approveDate` datetime DEFAULT NULL,
+  `creationDate` datetime DEFAULT NULL,
+  `commentDate` datetime DEFAULT NULL,
   `recommendationCount` int(11) DEFAULT NULL,
-  `display_name` text,
+  `username` text,
   `location` text,
-  `commentQuestion` text,
-  `commentSequence` int(11) DEFAULT NULL,
-  `status` text,
   `articleID` int(11) DEFAULT NULL,
   `editorsSelection` int(11) DEFAULT NULL,
-  `in_study` int(11) DEFAULT NULL,
   `ArticleRelevance` text,
   `ConversationalRelevance` text,
   `PersonalXP` text,
   `Readability` text,
+  `CommentLength` text,
   PRIMARY KEY (`commentID`),
   KEY `new index` (`articleID`)
-) ENGINE=InnoDB AUTO_INCREMENT=1571 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5066 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,21 +67,18 @@ DROP TABLE IF EXISTS `vocab_comments`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vocab_comments` (
   `commentID` int(11) NOT NULL AUTO_INCREMENT,
-  `commentTitle` text,
   `commentBody` text,
   `approveDate` datetime DEFAULT NULL,
   `recommendationCount` int(11) DEFAULT NULL,
   `display_name` text,
   `location` text,
-  `commentQuestion` text,
   `commentSequence` int(11) DEFAULT NULL,
   `status` text,
   `articleURL` varchar(200) DEFAULT NULL,
   `editorsSelection` int(11) DEFAULT NULL,
-  `in_study` int(11) DEFAULT NULL,
   PRIMARY KEY (`commentID`),
   KEY `new_index` (`articleURL`)
-) ENGINE=InnoDB AUTO_INCREMENT=300929 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=358339 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -92,4 +90,4 @@ CREATE TABLE `vocab_comments` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-03  4:27:39
+-- Dump completed on 2015-05-01 20:45:02

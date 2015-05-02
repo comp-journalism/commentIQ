@@ -19,11 +19,11 @@ The Personal Experience score is a measure of expressions of personal experience
 #### Readability
 The Readability score is calculated as the <a href="http://www.readabilityformulas.com/smog-readability-formula.php">SMOG</a> index or reading grade level of the text. 
 
-#### Brevity
-The Brevity score is computed as the number of words in a comment.
+#### Length
+The Length score is computed as the number of words in a comment.
 
 ###How to use the CommentIQ API
-There are 10 Different endpoints currently availabe, with their specific function, parameters and responses as described below. The basic gist of it is that you pass the API content (articles, and then comments associated with those articles) and the API will pass back the relevant scores. In order to provide a faster response time, content is cached on the CommentIQ server, which means that if your content changes (e.g. if an article is updated, or a comment is updated or deleted) you need to use the corresponding API endpoints so that the CommentIQ cache is synced and returning accurate scores.
+There are 11 Different endpoints currently available, with their specific function, parameters and responses as described below. The basic gist of it is that you pass the API content (articles, and then comments associated with those articles) and the API will pass back the relevant scores. In order to provide a faster response time, content is cached on the CommentIQ server, which means that if your content changes (e.g. if an article is updated, or a comment is updated or deleted) you need to use the corresponding API endpoints so that the CommentIQ cache is synced and returning accurate scores.
 
 
 1. [Add Article](#1)
@@ -35,13 +35,13 @@ There are 10 Different endpoints currently availabe, with their specific functio
 7. [Get Conversational Relevance Score](#7)
 8. [Get Personal Experience Score](#8)
 9. [Get Readability Score](#9)
-10. [Get Brevity Score](#10)
+10. [Get Length Score](#10)
 11. [Get All Scores](#11)
 
                                  
 |Name    |  Values and Notes          |
 |:----------|:-------------|
-| Base URL |  http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1 |
+| Base URL |  http://api.comment-iq.com/commentIQ/v1 |
 | HTTP methods |  POST/GET |
 | Response format |  JSON (.json) |
 
@@ -52,7 +52,7 @@ For new articles, article text needs to be sent via an HTTP POST method and an a
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| URL |  http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/addArticle |
+| URL |  http://api.comment-iq.com/commentIQ/v1/addArticle |
 | HTTP method |  POST |
 | Response format |  JSON (.json) |    
 
@@ -77,7 +77,7 @@ import requests
 import json
 
 your_article_text = "Your Article Text"
-url = "http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/addArticle"
+url = "http://api.comment-iq.com/commentIQ/v1/addArticle"
 params = {'article_text' : your_article_text }
 param_json = json.dumps(params)
 response = requests.post(url, param_json)
@@ -100,7 +100,7 @@ To update articles - updated article text and ArticleID needs to be send via HTT
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| URL |  http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/updateArticle |
+| URL |  http://api.comment-iq.com/commentIQ/v1/updateArticle |
 | HTTP method |  POST |
 | Response format |  JSON (.json) |    
 
@@ -125,7 +125,7 @@ import requests
 import json
 
 your_article_text = "Updated Article Text"
-url = "http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/updateArticle"
+url = "http://api.comment-iq.com/commentIQ/v1/updateArticle"
 params = {'article_text' : your_article_text, 'articleID' : articleID }
 param_json = json.dumps(params)
 response = requests.post(url, param_json)
@@ -140,23 +140,33 @@ status = response.json()['status']
 
 ### 3. <a name="3"></a>Add Comment
 #### 
-For new comments - Comment Text and Article ID need to be sent via an HTTP POST method. All the scores will be calculated and sent via Response. An auto-generated commentID will also be sent in response.                                                  
+For new comments - Comment Text and Article ID need to be sent via an HTTP POST method. All the scores will be calculated and sent via Response. An auto-generated commentID will also be sent in response. In order to get 
+best results for conversational relevance make sure to add the comments of an article in chronological order.                                                  
 
 <b>Note: </b> This Comment ID needs to be kept track of in order to update or delete the comment in the future.
 
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| URL |  http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/addComment |
+| URL |  http://api.comment-iq.com/commentIQ/v1/addComment |
 | HTTP method |  POST |
 | Response format |  JSON (.json) |    
 
 ###  Parameters
 
+#### Required Parameters
 | Name   | Values and Notes           |
 |:----------|:-------------|
 | commentBody | Should be sent as key name In JSON format |
 | articleID | Should be sent as key name In JSON format |
+
+#### Optional Parameters
+| Name   | Values and Notes           |
+|:----------|:-------------|
+| commentDate | Should be sent as key name In JSON format and its value should be in YYYY-MM-DD H:M:S format|
+| recommendationCount | Recommendation Count(or likes for comment) should be sent as key name In JSON format |
+| username | Should be sent as key name In JSON format |
+| location | Location of user should be sent as key name In JSON format |
 
 ### Response
 
@@ -166,8 +176,8 @@ For new comments - Comment Text and Article ID need to be sent via an HTTP POST 
 | ConversationalRelevance | Comment Conversational Relevance Score |
 | PersonalXP | Comment Personal Experience Score |
 | Readability | Comment Readability Score |
-| Brevity | Comment Brevity Score |
-| CommentID | AutoGenerated Comment ID |
+| Length | Comment Length Score |
+| commentID | AutoGenerated Comment ID |
 | status | Success/Failure |
 
 ###  Example
@@ -178,7 +188,7 @@ import json
 
 your_comment_text = "Your Comment Text"
 articleID = 78
-url = "http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/addComment"
+url = "http://api.comment-iq.com/commentIQ/v1/addComment"
 params = {'commentBody' : your_comment_text, 'articleID' : articleID }
 param_json = json.dumps(params)
 response = requests.post(url, param_json)
@@ -186,8 +196,8 @@ AR = response.json()['ArticleRelevance']
 CR = response.json()['ConversationalRelevance']
 personal_exp = response.json()['PersonalXP']
 readability = response.json()['Readability']
-brevity = response.json()['Brevity']
-commentID = response.json()['CommentID']
+Length = response.json()['Length']
+commentID = response.json()['commentID']
 status = response.json()['status']
 ```
 ##### RESPONSE JSON
@@ -197,9 +207,9 @@ status = response.json()['status']
     "ConversationalRelevance": "0.4046152704799379"
     "PersonalXP": "0.0727272727273"
     "Readability": "17.2"
-    "Brevity": "55"
+    "Length": "55"
     "status": "Add Successful"
-    "CommentID": "1714"
+    "commentID": "1714"
 }        
 ```
 
@@ -212,16 +222,26 @@ To update comment - Comment Text and Comment ID nees to be sent via an HTTP POST
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| URL |  http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/updateComment |
+| URL |  http://api.comment-iq.com/commentIQ/v1/updateComment |
 | HTTP method |  POST |
 | Response format |  JSON (.json) |    
 
 ###  Parameters
 
+#### Required Parameters
 | Name   | Values and Notes           |
 |:----------|:-------------|
 | commentBody | Should be sent as key name In JSON format |
 | commentID | Should be sent as key name In JSON format |
+
+#### Optional Parameters
+| Name   | Values and Notes           |
+|:----------|:-------------|
+| commentDate | Should be sent as key name In JSON format and its value should be in YYYY-MM-DD H:M:S format|
+| recommendationCount | Recommendation Count(or likes for comment) should be sent as key name In JSON format |
+| username | Should be sent as key name In JSON format |
+| location | Location of user should be sent as key name In JSON format |
+
 
 ### Response
 
@@ -231,7 +251,7 @@ To update comment - Comment Text and Comment ID nees to be sent via an HTTP POST
 | ConversationalRelevance | Comment Conversational Relevance Score |
 | PersonalXP | Comment Personal Experience Score |
 | Readability | Comment Readability Score |
-| Brevity | Comment Brevity Score |
+| Length | Comment Length Score |
 | status | Success/Failure |
 
 ###  Example
@@ -240,9 +260,9 @@ To update comment - Comment Text and Comment ID nees to be sent via an HTTP POST
 import requests
 import json
 
-updated_comment_text = "Your Update Comment Text"
+updated_comment_text = "Your Updated Comment Text"
 commentID = 172
-url = "http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/updateComment"
+url = "http://api.comment-iq.com/commentIQ/v1/updateComment"
 params = {'commentBody' : update_comment_text, 'commentID' : commentID }
 param_json = json.dumps(params)
 response = requests.post(url, param_json)
@@ -250,7 +270,7 @@ AR = response.json()['ArticleRelevance']
 CR = response.json()['ConversationalRelevance']
 personal_exp = response.json()['PersonalXP']
 readability = response.json()['Readability']
-brevity = response.json()['Brevity']
+Length = response.json()['Length']
 status = response.json()['status']
 ```
 ##### RESPONSE JSON
@@ -260,7 +280,7 @@ status = response.json()['status']
     "ConversationalRelevance": "0.4046152704799379"
     "PersonalXP": "0.0727272727273"
     "Readability": "17.2"
-    "Brevity": "55"
+    "Length": "55"
     "Status": "Update Successful"
 }        
 ```
@@ -273,7 +293,7 @@ To delete a comment - Comment ID needs to be sent via an HTTP DELETE method.
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| URL |  http://ec2-54-173-77-171.compute-1.amazonaws.com//commentIQ/v1/deleteComment/<b>commentID</b> |
+| URL |  http://api.comment-iq.com/commentIQ/v1/deleteComment/<b>commentID</b> |
 | HTTP method |  DELETE |
 | Response format |  JSON (.json) |    
 
@@ -298,7 +318,7 @@ import requests
 import json
 
 commentID = 172
-url = "http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/deleteComment/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/deleteComment/'"+ str(commentID) +"'"
 response = requests.delete(url)
 print response.json()
 ```
@@ -316,7 +336,7 @@ To get the Article Relevance Score of a comment - the Comment ID needs to be sen
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| URL |  http://ec2-54-173-77-171.compute-1.amazonaws.com//commentIQ/v1/getArticleRelevance/<b>commentID</b> |
+| URL |  http://api.comment-iq.com/commentIQ/v1/getArticleRelevance/<b>commentID</b> |
 | HTTP method |  GET |
 | Response format |  JSON (.json) |    
 
@@ -341,7 +361,7 @@ import requests
 import json
 
 commentID = 172
-url = "http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getArticleRelevance/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/getArticleRelevance/'"+ str(commentID) +"'"
 response = requests.get(url)
 print response.json()
 ```
@@ -359,7 +379,7 @@ To get the Conversational Relevance Score of a comment - the Comment ID needs to
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| URL |  http://ec2-54-173-77-171.compute-1.amazonaws.com//commentIQ/v1/getConversationalRelevance/<b>commentID</b> |
+| URL |  http://api.comment-iq.com/commentIQ/v1/getConversationalRelevance/<b>commentID</b> |
 | HTTP method |  GET |
 | Response format |  JSON (.json) |    
 
@@ -384,7 +404,7 @@ import requests
 import json
 
 commentID = 172
-url = "http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getConversationalRelevance/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/getConversationalRelevance/'"+ str(commentID) +"'"
 response = requests.get(url)
 print response.json()
 ```
@@ -403,7 +423,7 @@ To get the Personal Experience Score of a comment - the Comment ID needs to be s
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| URL |  http://ec2-54-173-77-171.compute-1.amazonaws.com//commentIQ/v1/getPersonalXP/<b>commentID</b> |
+| URL |  http://api.comment-iq.com/commentIQ/v1/getPersonalXP/<b>commentID</b> |
 | HTTP method |  GET |
 | Response format |  JSON (.json) |    
 
@@ -428,7 +448,7 @@ import requests
 import json
 
 commentID = 172
-url = "http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getPersonalXP/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/getPersonalXP/'"+ str(commentID) +"'"
 response = requests.get(url)
 print response.json()
 ```
@@ -448,7 +468,7 @@ To get the Readability Score of a comment - Comment ID needs to be sent via an H
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| URL |  http://ec2-54-173-77-171.compute-1.amazonaws.com//commentIQ/v1/getReadability/<b>commentID</b> |
+| URL |  http://api.comment-iq.com/commentIQ/v1/getReadability/<b>commentID</b> |
 | HTTP method |  GET |
 | Response format |  JSON (.json) |    
 
@@ -473,7 +493,7 @@ import requests
 import json
 
 commentID = 172
-url = "http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getReadability/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/getReadability/'"+ str(commentID) +"'"
 response = requests.get(url)
 print response.json()
 ```
@@ -486,14 +506,14 @@ print response.json()
 ```
 
 
-### 10. <a name="10"></a>Get Brevity Score
+### 10. <a name="10"></a>Get Length Score
 #### 
-To get the Brevity Score of a comment - Comment ID needs to be sent via an HTTP GET method. The Brevity score will be fetched and sent via Response.
+To get the Length Score of a comment - Comment ID needs to be sent via an HTTP GET method. The Length score will be fetched and sent via Response.
 
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| URL |  http://ec2-54-173-77-171.compute-1.amazonaws.com//commentIQ/v1/getBrevity/<b>commentID</b> |
+| URL |  http://api.comment-iq.com/commentIQ/v1/getLength/<b>commentID</b> |
 | HTTP method |  GET |
 | Response format |  JSON (.json) |    
 
@@ -508,7 +528,7 @@ To get the Brevity Score of a comment - Comment ID needs to be sent via an HTTP 
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| Brevity | Comment Brevity Score |
+| Length | Comment Length Score |
 | status | Success/Failure |
 
 ###  Example
@@ -518,14 +538,14 @@ import requests
 import json
 
 commentID = 172
-url = "http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getBrevity/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/getLength/'"+ str(commentID) +"'"
 response = requests.get(url)
 print response.json()
 ```
 ##### RESPONSE JSON
 ```sh
 {
-    "Brevity": "55"
+    "Length": "55"
     "status": "success"
 }        
 ```
@@ -537,7 +557,7 @@ To get All Scores of a comment - the Comment ID needs to be sent via HTTP GET me
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| URL |  http://ec2-54-173-77-171.compute-1.amazonaws.com//commentIQ/v1/getScores/<b>commentID</b> |
+| URL |  http://api.comment-iq.com/commentIQ/v1/getScores/<b>commentID</b> |
 | HTTP method |  GET |
 | Response format |  JSON (.json) |    
 
@@ -556,7 +576,7 @@ To get All Scores of a comment - the Comment ID needs to be sent via HTTP GET me
 | ConversationalRelevance | Comment Conversational Relevance Score |
 | PersonalXP | Comment Personal Experience Score |
 | Readability | Comment Readability Score |
-| Brevity | Comment Brevity Score |
+| Length | Comment Length Score |
 | status | Success/Failure |
 
 ###  Example
@@ -566,7 +586,7 @@ imoport requests
 import json
 
 commentID = 172
-url = "http://ec2-54-173-77-171.compute-1.amazonaws.com/commentIQ/v1/getScores/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/getScores/'"+ str(commentID) +"'"
 response = requests.get(url)
 print response.json()
 ```
@@ -577,7 +597,7 @@ print response.json()
     "ConversationalRelevance": "0.4046152704799379"
     "PersonalXP": "0.0727272727273"
     "Readability": "17.2"
-    "Brevity": "55"
+    "Length": "55"
     "Status": "success"
 }        
 ```

@@ -281,7 +281,7 @@ def calcReadability(comment_text):
     readability_score = textstat.smog_index(text=text)
     return readability_score
 
-def calBrevity(comment_text):
+def calLength(comment_text):
     token = CleanAndTokenize(comment_text)
     return len(token)
 
@@ -291,8 +291,8 @@ def updateComment(comment_text,commentID):
     ConversationalRelevance = ComputeCommentConversationalRelevance(comment_text,commentID,operation)
     PersonalXP = calcPersonalXPScores(comment_text)
     Readability = calcReadability(comment_text)
-    Brevity = calBrevity(comment_text)
-    return (ArticleRelevance,ConversationalRelevance,PersonalXP,Readability,Brevity)
+    Length = calLength(comment_text)
+    return (ArticleRelevance,ConversationalRelevance,PersonalXP,Readability,Length)
 
 def addComment(comment_text,articleID):
     operation = "add"
@@ -300,7 +300,7 @@ def addComment(comment_text,articleID):
     ConversationalRelevance = ComputeCommentConversationalRelevance(comment_text,articleID,operation)
     PersonalXP = calcPersonalXPScores(comment_text)
     Readability = calcReadability(comment_text)
-    Brevity = calBrevity(comment_text)
-    return (ArticleRelevance,ConversationalRelevance,PersonalXP,Readability,Brevity)
+    Length = calLength(comment_text)
+    return (ArticleRelevance,ConversationalRelevance,PersonalXP,Readability,Length)
 
 

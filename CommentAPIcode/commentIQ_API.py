@@ -6,12 +6,12 @@ __author__ = 'ssachar'
 
 from flask import Flask, request, jsonify, make_response
 import time
+import datetime
 import mysql.connector
 import json
 from mysql.connector.errors import Error
 from calculate_score import error_name, escape_string, addComment, updateComment
 from ConfigParser import SafeConfigParser
-import json
 
 app = Flask(__name__)
 app.debug = True
@@ -27,6 +27,7 @@ password = parser.get('credentials', 'password')
 host = parser.get('credentials', 'host')
 database = parser.get('credentials', 'database')
 
+
 #Add the article Text and return the ArticleID
 @app.route('/commentIQ/v1/addArticle', methods=['GET', 'POST', 'DELETE'])
 def addArticle():
@@ -38,13 +39,11 @@ def addArticle():
             article_text = escape_string(dataDict['article_text'].strip())
 
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
-
             cursor = cnx.cursor()
 
             insert_query = "INSERT INTO articles (pubDate, full_text)" \
                                         " VALUES('%s', '%s')" % \
                                         (current_time, article_text)
-
             cursor.execute(insert_query)
             articleID = cursor.lastrowid
             rowsaffected = cursor.rowcount
@@ -81,7 +80,7 @@ def updateArticle():
                      " where articleID = '"+ str(articleID) +"' "
             cursor.execute(update)
             rowsaffected = cursor.rowcount
-
+            cnx.commit()
             cnx.close
 
             if rowsaffected == 1:
@@ -103,7 +102,33 @@ def AddComment():
             dataDict = json.loads(data)
             articleID = dataDict['articleID']
             commentBody = escape_string(dataDict['commentBody'].strip())
-            current_time = time.strftime("%Y-%m-%d %I:%M:%S")
+            current_time = time.strftime("%Y-%m-%d %H:%M:%S")
+
+            if 'commentDate' in dataDict:
+                commentDate = dataDict['commentDate']
+                try:
+                    datetime.datetime.strptime(commentDate, '%Y-%m-%d %H:%M:%S')
+                except:
+                    err_msg =  "Incorrect date format, Correct format should be YYYY-MM-DD H:M:S"
+                    return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                               Readability = 0.0, Length = 0.0,commentID = None ,status = err_msg)
+            else:
+                commentDate = ""
+
+            if 'recommendationCount' in dataDict:
+                recommendationCount = int(dataDict['recommendationCount'])
+            else:
+                recommendationCount = 0
+
+            if 'username' in dataDict:
+                username = dataDict['username']
+            else:
+                username = ""
+
+            if 'location' in dataDict:
+                location = dataDict['location']
+            else:
+                location = ""
 
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
             cursor = cnx.cursor()
@@ -112,19 +137,20 @@ def AddComment():
             count = cursor.fetchall()[0][0]
             if count < 1 :
                 return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
-                               Readability = 0.0, Brevity = 0.0,CommentID = None ,status = "Operation failed")
+                               Readability = 0.0, Length = 0.0,commentID = None ,status = "Operation failed")
             else:
                 # Call addComment() function of subroutine - calculate_score to calculate all the scores
-                ArticleRelevance, ConversationalRelevance, PersonalXP, Readability, Brevity = \
+                ArticleRelevance, ConversationalRelevance, PersonalXP, Readability, Length = \
                 addComment(commentBody,articleID)
-                insert_query = "INSERT INTO comments (commentBody, approveDate, articleID,ArticleRelevance," \
-                               "ConversationalRelevance, PersonalXP, Readability, Brevity) " \
-                               "VALUES ('%s','%s','%s','%s','%s','%s','%s','%s')" % \
-                               (commentBody,current_time,articleID,str(ArticleRelevance),str(ConversationalRelevance) \
-                               ,str(PersonalXP),str(Readability),str(Brevity))
+                insert_query = "INSERT INTO comments (commentBody, creationDate, articleID," \
+                               "commentDate,recommendationCount,username,location," \
+                               "ArticleRelevance,ConversationalRelevance, PersonalXP, Readability, CommentLength)" \
+                               "VALUES ('%s','%s','%s','%s','%d','%s','%s','%s','%s','%s','%s','%s')" % \
+                               (commentBody,current_time,articleID,commentDate,recommendationCount,username,location, \
+                                str(ArticleRelevance),str(ConversationalRelevance),str(PersonalXP),str(Readability),str(Length))
                 cursor.execute(insert_query)
                 CommentID = cursor.lastrowid
-#                cnx.commit()
+                cnx.commit()
                 rowsaffected = cursor.rowcount
                 cnx.close
                 if rowsaffected == 1:
@@ -137,7 +163,7 @@ def AddComment():
             ConversationalRelevance = 0.0
             PersonalXP = 0.0
             Readability = 0.0
-            Brevity = 0.0
+            Length = 0.0
             status = error_name()
             CommentID = None
     else:
@@ -145,13 +171,13 @@ def AddComment():
         ConversationalRelevance = 0.0
         PersonalXP = 0.0
         Readability = 0.0
-        Brevity = 0.0
+        Length = 0.0
         CommentID = None
         status = "Add operation failed - use HTTP POST method"
 
     return jsonify(ArticleRelevance = ArticleRelevance, ConversationalRelevance = ConversationalRelevance, \
-                   PersonalXP = PersonalXP, Readability = Readability, Brevity = Brevity,  \
-                   CommentID = CommentID,status=status)
+                   PersonalXP = PersonalXP, Readability = Readability, Length = Length,  \
+                   commentID = CommentID,status=status)
 
 #Update the comment Text and return the updated scores
 @app.route('/commentIQ/v1/updateComment', methods=['GET', 'POST', 'DELETE'])
@@ -161,23 +187,52 @@ def UpdateComments():
             data = request.data
             dataDict = json.loads(data)
             commentID = dataDict['commentID']
-            commentBody = escape_string(dataDict['commentBody'].strip())
-
-            # Call updateComment() function of subroutine - calculate_score to re-calculate all the scores
-            ArticleRelevance, ConversationalRelevance, PersonalXP, Readability, Brevity  = \
-            updateComment(commentBody,commentID)
 
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
             cursor = cnx.cursor()
 
+            cursor.execute("select commentDate,recommendationCount,username,location from comments where commentID = '"+ str(commentID) +"'")
+
+            for row in cursor:
+                commentDate = row[0]
+                recommendationCount = row[1]
+                username = row[2]
+                location = row[3]
+
+            commentBody = escape_string(dataDict['commentBody'].strip())
+
+            if 'commentDate' in dataDict:
+                commentDate = dataDict['commentDate']
+                try:
+                    datetime.datetime.strptime(commentDate, '%Y-%m-%d %H:%M:%S')
+                except:
+                    err_msg =  "Incorrect date format, Correct format should be YYYY-MM-DD H:M:S"
+                    return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                               Readability = 0.0, Length = 0.0 ,status = err_msg)
+
+            if 'recommendationCount' in dataDict:
+                recommendationCount = dataDict['recommendationCount']
+
+            if 'username' in dataDict:
+                username = dataDict['username']
+
+            if 'location' in dataDict:
+                location = dataDict['location']
+
+            # Call updateComment() function of subroutine - calculate_score to re-calculate all the scores
+            ArticleRelevance, ConversationalRelevance, PersonalXP, Readability, Length  = \
+            updateComment(commentBody,commentID)
+
             update = "update comments set ArticleRelevance = '"+ str(ArticleRelevance) +"', " \
                      "ConversationalRelevance = '"+ str(ConversationalRelevance) +"' , " \
                      "PersonalXP = '"+ str(PersonalXP) +"', Readability = '"+ str(Readability) +"'," \
-                     "Brevity = '"+ str(Brevity) +"', CommentBody = '" + commentBody + "' " \
+                     "CommentLength = '"+ str(Length) +"', CommentBody = '" + commentBody + "' ," \
+                     "commentDate = '"+ str(commentDate) +"', recommendationCount = '" + str(recommendationCount) + "', " \
+                     "username = '"+ str(username) +"', location = '" + str(location) + "' " \
                      " where commentID = '"+ str(commentID) +"' "
             cursor.execute(update)
             rowsaffected = cursor.rowcount
-
+            cnx.commit()
             cnx.close
 
             if rowsaffected == 1:
@@ -189,18 +244,18 @@ def UpdateComments():
             ConversationalRelevance = 0.0
             PersonalXP = 0.0
             Readability = 0.0
-            Brevity = 0.0
+            Length = 0.0
             status = error_name()
     else:
         ArticleRelevance = 0.0
         ConversationalRelevance = 0.0
         PersonalXP = 0.0
         Readability = 0.0
-        Brevity = 0.0
+        Length = 0.0
         status = "Update Operation failed - use HTTP POST method"
 
     return jsonify(ArticleRelevance = ArticleRelevance, ConversationalRelevance = ConversationalRelevance, \
-                   PersonalXP = PersonalXP, Readability = Readability, Brevity = Brevity, status = status)
+                   PersonalXP = PersonalXP, Readability = Readability, Length = Length, status = status)
 
 #Delete the comment from the database
 @app.route('/commentIQ/v1/deleteComment/<commentID>',methods=['GET', 'POST', 'DELETE'])
@@ -219,6 +274,7 @@ def deleteComment(commentID):
             cursor.execute(delete)
             rowsaffected = cursor.rowcount
 
+            cnx.commit()
             cnx.close
 
             if rowsaffected == 1:
@@ -363,9 +419,9 @@ def getReadability(commentID):
         status = "Operation failed - Use HTTP GET method"
     return jsonify(Readability = Readability, status = status)
 
-# Return the Score of Brevity for the comment
-@app.route('/commentIQ/v1/getBrevity/<commentID>',methods=['GET', 'POST', 'DELETE'])
-def getBrevity(commentID):
+# Return the Score of Length for the comment
+@app.route('/commentIQ/v1/getLength/<commentID>',methods=['GET', 'POST', 'DELETE'])
+def getLength(commentID):
     if request.method == 'GET':
         try:
             if isinstance(commentID, int):
@@ -376,7 +432,7 @@ def getBrevity(commentID):
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
             cursor = cnx.cursor()
 
-            cursor.execute("select Brevity from comments where commentID = '" + commentID + "' ")
+            cursor.execute("select CommentLength from comments where commentID = '" + commentID + "' ")
             scores = cursor.fetchall()
             rowsaffected = cursor.rowcount
 
@@ -384,17 +440,17 @@ def getBrevity(commentID):
 
             if rowsaffected == 1:
                 status = "success"
-                Brevity = scores[0][0]
+                Length = scores[0][0]
             else:
                 status = "operation failed"
-                Brevity = 0.0
+                Length = 0.0
         except:
-            Brevity = 0.0
+            Length = 0.0
             status = error_name()
     else:
-        Brevity = 0.0
+        Length = 0.0
         status = "Operation failed - Use HTTP GET method"
-    return jsonify(Brevity = Brevity, status = status)
+    return jsonify(Length = Length, status = status)
 
 
 # Return all the scores for the comment
@@ -410,7 +466,7 @@ def getScores(commentID):
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
             cursor = cnx.cursor()
 
-            cursor.execute("select ArticleRelevance,ConversationalRelevance,PersonalXP,Readability, Brevity " \
+            cursor.execute("select ArticleRelevance,ConversationalRelevance,PersonalXP,Readability, CommentLength " \
                            "from comments where commentID = '" + commentID + "' ")
             scores = cursor.fetchall()
             rowsaffected = cursor.rowcount
@@ -423,30 +479,30 @@ def getScores(commentID):
                 ConversationalRelevance = scores[0][1]
                 PersonalXP = scores[0][2]
                 Readability = scores[0][3]
-                Brevity = scores[0][4]
+                Length = scores[0][4]
             else:
                 status = "operation failed"
                 ArticleRelevance = 0.0
                 ConversationalRelevance = 0.0
                 PersonalXP = 0.0
                 Readability = 0.0
-                Brevity = 0.0
+                Length = 0.0
         except:
             status = error_name()
             ArticleRelevance = 0.0
             ConversationalRelevance = 0.0
             PersonalXP = 0.0
             Readability = 0.0
-            Brevity = 0.0
+            Length = 0.0
     else:
         ArticleRelevance = 0.0
         ConversationalRelevance = 0.0
         PersonalXP = 0.0
         Readability = 0.0
-        Brevity = 0.0
+        Length = 0.0
         status = "Operation failed - Use HTTP GET method"
     return jsonify(ArticleRelevance = ArticleRelevance, ConversationalRelevance = ConversationalRelevance, \
-                   PersonalXP = PersonalXP, Readability = Readability, Brevity = Brevity, status = status)
+                   PersonalXP = PersonalXP, Readability = Readability, Length = Length, status = status)
 
 @app.route('/commentIQ/v1/getVocabulary',methods=['GET', 'POST', 'DELETE'])
 def getVocab():

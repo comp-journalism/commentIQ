@@ -38,13 +38,11 @@ parserkeys = SafeConfigParser()
 parserkeys.read('apidata/keys_config.ini')
 
 # Fetch the key values from config file (depends upon how many api keys you have)
-COMMUNITY_API_KEY = parserkeys.get('API-KEYS', 'KEY1')
-COMMUNITY_API_KEY2 = parserkeys.get('API-KEYS', 'KEY2')
-COMMUNITY_API_KEY3 = parserkeys.get('API-KEYS', 'KEY3')
+key_list =  parserkeys.options('API-KEYS')
+COMMUNITY_API_KEY_LIST = [parserkeys.get('API-KEYS', key) for key in key_list]
 
 
-COMMUNITY_API_KEY_LIST = [COMMUNITY_API_KEY,COMMUNITY_API_KEY2,COMMUNITY_API_KEY3]
-key_limit = 4999
+key_limit = 4000
 
 doc_frequency = {}
 stopword_list = stopwords.words('english')
@@ -110,14 +108,26 @@ def CollectComments():
         key_index = 0
         API_KEY = COMMUNITY_API_KEY_LIST[key_index]
         nytapi = NYTCommunityAPI(API_KEY)
-        d_start, d_end = date_validate()
+
+        start_end_date_json = open("apidata/start_end_date.json")
+        start_end_date = json.load(start_end_date_json)
+
+        d_start = datetime.datetime.strptime(start_end_date['start_date'], '%Y-%m-%d')
+        d_end = datetime.datetime.strptime(start_end_date['end_date'], '%Y-%m-%d')
+        offset_json = start_end_date['offset']
+
+
+
         d = d_start
         global g_offset
         global g_day
         count = 0
+
         while d < d_end:
             g_day = d
             offset = 0
+            if d == d_start:
+                offset = offset_json
             date_string = d.strftime("%Y%m%d")
             #Get the total # of comments for today
             r = nytapi.apiCall(date_string, offset)
@@ -165,11 +175,23 @@ def CollectComments():
 
                 cnx.commit()
                 offset = offset + pagesize
+
+                update_date_json(d.strftime("%Y-%m-%d"),d_end.strftime("%Y-%m-%d"),offset)
+
                 count += 1
                 print "#Calls: " + str(nytapi.nCalls)
                 print "counter value: " + str(count)
             # Go to next day
             d += datetime.timedelta(days=1)
+            if d == d_end:
+                offset = 0
+                update_date_json(d_start.strftime("%Y-%m-%d"),d_end.strftime("%Y-%m-%d"),offset)
+
+                # cut off the comments data that is more than 3 months
+                cursor.execute("select DATE_SUB(max(approveDate), INTERVAL 90 DAY) from vocab_comments ")
+                max_date = cursor.fetchall()[0][0].strftime("%Y-%m-%d")
+                cursor.execute("delete from vocab_comments where approveDate < '"+ max_date +"'")
+                cnx.commit()
     except:
         print error_name(g_day,g_offset)
         sys.exit(1)
@@ -210,19 +232,57 @@ def ComputeVocabulary():
 def date_validate():
     start_date = raw_input("Enter start date(YYYY-MM-DD): ")
     end_date = raw_input("Enter end date(YYYY-MM-DD): ")
+    offset = raw_input("Enter offset (0 or multiple of 25): ")
     try:
         datetime.datetime.strptime(start_date, '%Y-%m-%d')
         datetime.datetime.strptime(end_date, '%Y-%m-%d')
     except:
          print "Incorrect date format, should be YYYY-MM-DD"
          sys.exit(1)
+
+    try:
+        offset_value = int(offset)
+    except ValueError:
+        print "Please enter correct value for offset"
+        sys.exit(1)
+
+    if offset_value % 25 != 0 or offset_value < 0:
+        print "Please enter correct value for offset"
+        sys.exit(1)
+
     start_dateOBJ = datetime.datetime.strptime(start_date, "%Y-%m-%d").date()
     end_dateOBJ = datetime.datetime.strptime(end_date, "%Y-%m-%d").date()
 
     if end_dateOBJ <= start_dateOBJ:
         print "End date must be greater than start date"
         sys.exit(1)
-    return (start_dateOBJ,end_dateOBJ)
+
+    update_date_json(start_date,end_date,offset_value)
+
+def user_input():
+    start_end_date_json = open("apidata/start_end_date.json")
+    start_end_date = json.load(start_end_date_json)
+
+    print "start date: " + start_end_date['start_date']
+    print "end date: " + start_end_date['end_date']
+    print "offset: " + str(start_end_date['offset'])
+    choice = raw_input("Change start and end date?(Y/N): ")
+    if choice == 'y' or choice == 'Y':
+        date_validate()
+    elif choice == 'n' or choice == 'N':
+        pass
+    else:
+        print "--incorrect option----"
+        print "   "
+        user_input()
+
+def update_date_json(start_date,end_date,offset_value):
+    json_dates = {}
+    output_json = open("apidata/start_end_date.json", "w")
+    json_dates['start_date'] = start_date
+    json_dates['end_date'] = end_date
+    json_dates['offset'] = offset_value
+    json.dump(json_dates,output_json)
 
 # Count the number of comments and store in a text file
 def getDocumentCount():
@@ -237,7 +297,7 @@ def getDocumentCount():
         print error_name(g_day,g_offset)
         sys.exit(1)
 
-
+user_input()
 CollectComments()
 ComputeVocabulary()
 getDocumentCount()
