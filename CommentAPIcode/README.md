@@ -91,7 +91,7 @@ This will start the flask server and you can start using the CommentIQ API.
 ###  Examples
 ##### Add Article (Python Code)
 ```sh
-imoport requests
+import requests
 import json
 
 your_article_text = "Your Article Text"
