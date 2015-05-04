@@ -263,7 +263,7 @@ import json
 updated_comment_text = "Your Updated Comment Text"
 commentID = 172
 url = "http://api.comment-iq.com/commentIQ/v1/updateComment"
-params = {'commentBody' : update_comment_text, 'commentID' : commentID }
+params = {'commentBody' : updated_comment_text, 'commentID' : commentID }
 param_json = json.dumps(params)
 response = requests.post(url, param_json)
 AR = response.json()['ArticleRelevance']
