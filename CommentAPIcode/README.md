@@ -63,7 +63,7 @@ Python script to perform this operation: NytApiCall_ComputeVocab.py
 ####Steps to Run NytApiCall_ComputeVocab.py:
 
 
-Each NYT API keys have a limit of 5000 calls per day. So please make sure the key limit does not exceed more than 5000. Exceeding the key limit will lead to "Developer over rate" and you will not be able to fetch more comments via the same API key. Click <a href="http://developer.nytimes.com/docs/faq#9a" target="_blank">here</a> for more information. 
+Each NYT API keys have a limit of 5000 calls per day. So please make sure the key limit does not exceed more than 5000. Exceeding the key limit will lead to "Developer over rate" and you will not be able to fetch more comments via the same API key. Click <a href="http://developer.nytimes.com/docs/faq#9a" target="_blank">here</a> for more information about the NYT Community API. 
 
 The Code perform 4 operations:
 
