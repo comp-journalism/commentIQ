@@ -63,15 +63,15 @@ Python script to perform this operation: NytApiCall_ComputeVocab.py
 ####Steps to Run NytApiCall_ComputeVocab.py:
 
 
-Each NYT API keys have a limit of 5000 calls per day. So please make sure the key limit does not exceed more than 5000. Exceeding the key limit will lead to "Developer over rate" and you will not be able to fetch more comments via the same API key. Click <a href="http://developer.nytimes.com/docs/faq#9a" target="_blank">here</a> for more information about the NYT Community API. 
+Each NYT API keys have a limit of 5000 calls per day. So please make sure the key limit does not exceed more than 5000. Exceeding the key limit will lead to "Developer over rate" and you will not be able to fetch more comments via the same API key. Click <a href="http://developer.nytimes.com/docs/faq#9a" target="_blank">here</a> for more information about the NYT  API. 
 
 The Code perform 4 operations:
 
-1. User Input: The user specifies a starting date, ending date, offset value of their choice, which specifis the range of data to collect.
+1. User Input: The user specifies a starting date, ending date, offset value of their choice (see <a href="http://developer.nytimes.com/docs/community_api/The_Community_API_v3/">NYT API docs</a> for how the offset parameter works), which specifies the range of data to collect.
 2. Collect Comments:                    
     * This function will collect all the comments data from the New York Times as per the mentioned dates. 
     * The comments data will be stored in the vocab_comments table. 
-    * The offset value is 25 which means each call will fetch 25 comments. 
+    * Each call will fetch 25 comments. 
     * The user can also decrease the key_limit value if desired to run a small cycle.
     * Maintains a dictionary of 3 months worth of latest comments data (comments data of more than 3 month will be deleted).
 3. Compute Vocabulary: Gets the frequency distribution of each word across all comments in the vocab_comments table and stores in a JSON for later reference (vocab_freq.json).
