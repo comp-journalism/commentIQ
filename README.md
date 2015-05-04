@@ -216,7 +216,7 @@ status = response.json()['status']
 
 ### 4. <a name="4"></a>Update Comment
 #### 
-To update comment - Comment Text and Comment ID nees to be sent via an HTTP POST method. All the scores will be calculated and sent via Response.           
+To update comment - Comment Text and Comment ID needs to be sent via an HTTP POST method. All the scores will be calculated and sent via the Response.           
 <b>Note: </b> It is important to update the API with comment text that has changed in order to calculate the correct scores for a comment.
 
 
