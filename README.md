@@ -60,7 +60,7 @@ For new articles, article text needs to be sent via an HTTP POST method and an a
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| article_text | Should be sent as key name In JSON format |
+| article_text | Should be sent as key in a JSON format, Value Data Type: String |
 
 ### Response
 
@@ -108,8 +108,8 @@ To update articles - updated article text and ArticleID needs to be sent via an 
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| article_text | Should be sent as key name In JSON format |
-| articleID | Should be sent as key name In JSON format |
+| article_text | Should be sent as key in a JSON format, Value Data Type: String |
+| articleID | Should be sent as key in a JSON format, Value Data Type: Integer/Number |
 
 ### Response
 
@@ -157,16 +157,16 @@ best results for conversational relevance make sure to add the comments of an ar
 #### Required Parameters
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| commentBody | Should be sent as key name In JSON format |
-| articleID | Should be sent as key name In JSON format |
+| commentBody | Should be sent as key in a JSON format, Value Data Type: String |
+| articleID | Should be sent as key in a JSON format, Value Data Type: Integer/Number |
 
 #### Optional Parameters
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| commentDate | Should be sent as key name In JSON format and its value should be in YYYY-MM-DD H:M:S format|
-| recommendationCount | Recommendation Count(or likes for comment) should be sent as key name In JSON format |
-| username | Should be sent as key name In JSON format |
-| location | Location of user should be sent as key name In JSON format |
+| commentDate | Should be sent as key name In JSON format and its value should be a string in YYYY-MM-DD H:M:S format|
+| recommendationCount | Recommendation Count(or likes for comment) should be sent as key name in a JSON format, Value Data Type: Integer/Number |
+| username | Should be sent as key in a JSON format, Value Data Type: String |
+| location | Should be sent as key in a JSON format, Value Data Type: String |
 
 ### Response
 
@@ -231,16 +231,16 @@ To update comment - Comment Text and Comment ID needs to be sent via an HTTP POS
 #### Required Parameters
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| commentBody | Should be sent as key name In JSON format |
-| commentID | Should be sent as key name In JSON format |
+| commentBody | Should be sent as key in a JSON format, Value Data Type: String |
+| commentID | Should be sent as key in a JSON format, Value Data Type: Integer/Number |
 
 #### Optional Parameters
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| commentDate | Should be sent as key name In JSON format and its value should be in YYYY-MM-DD H:M:S format|
-| recommendationCount | Recommendation Count(or likes for comment) should be sent as key name In JSON format |
-| username | Should be sent as key name In JSON format |
-| location | Location of user should be sent as key name In JSON format |
+| commentDate | Should be sent as key name In JSON format and its value should be a string in YYYY-MM-DD H:M:S format|
+| recommendationCount | Recommendation Count(or likes for comment) should be sent as key name in a JSON format, Value Data Type: Integer/Number |
+| username | Should be sent as key in a JSON format, Value Data Type: String |
+| location | Should be sent as key in a JSON format, Value Data Type: String |
 
 
 ### Response
@@ -301,7 +301,7 @@ To delete a comment - Comment ID needs to be sent via an HTTP DELETE method.
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| commentID | Should be sent as part of URL |
+| commentID | Should be sent as part of URL, Value Data Type: Integer/Number|
 
 
 ### Response
@@ -318,7 +318,7 @@ import requests
 import json
 
 commentID = 172
-url = "http://api.comment-iq.com/commentIQ/v1/deleteComment/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/deleteComment/" + str(commentID)
 response = requests.delete(url)
 print response.json()
 ```
@@ -344,7 +344,7 @@ To get the Article Relevance Score of a comment - the Comment ID needs to be sen
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| commentID | Should be sent as part of URL |
+| commentID | Should be sent as part of URL, Value Data Type: Integer/Number |
 
 
 ### Response
@@ -361,7 +361,7 @@ import requests
 import json
 
 commentID = 172
-url = "http://api.comment-iq.com/commentIQ/v1/getArticleRelevance/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/getArticleRelevance/" + str(commentID)
 response = requests.get(url)
 print response.json()
 ```
@@ -387,7 +387,7 @@ To get the Conversational Relevance Score of a comment - the Comment ID needs to
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| commentID | Should be sent as part of URL |
+| commentID | Should be sent as part of URL, Value Data Type: Integer/Number |
 
 
 ### Response
@@ -404,7 +404,7 @@ import requests
 import json
 
 commentID = 172
-url = "http://api.comment-iq.com/commentIQ/v1/getConversationalRelevance/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/getConversationalRelevance/" + str(commentID)
 response = requests.get(url)
 print response.json()
 ```
@@ -431,7 +431,7 @@ To get the Personal Experience Score of a comment - the Comment ID needs to be s
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| commentID | Should be sent as part of URL |
+| commentID | Should be sent as part of URL, Value Data Type: Integer/Number |
 
 
 ### Response
@@ -448,7 +448,7 @@ import requests
 import json
 
 commentID = 172
-url = "http://api.comment-iq.com/commentIQ/v1/getPersonalXP/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/getPersonalXP/" + str(commentID)
 response = requests.get(url)
 print response.json()
 ```
@@ -476,7 +476,7 @@ To get the Readability Score of a comment - Comment ID needs to be sent via an H
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| commentID | Should be sent as part of URL |
+| commentID | Should be sent as part of URL, Value Data Type: Integer/Number |
 
 
 ### Response
@@ -493,7 +493,7 @@ import requests
 import json
 
 commentID = 172
-url = "http://api.comment-iq.com/commentIQ/v1/getReadability/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/getReadability/"+ str(commentID) 
 response = requests.get(url)
 print response.json()
 ```
@@ -521,7 +521,7 @@ To get the Length Score of a comment - Comment ID needs to be sent via an HTTP G
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| commentID | Should be sent as part of URL |
+| commentID | Should be sent as part of URL, Value Data Type: Integer/Number |
 
 
 ### Response
@@ -538,7 +538,7 @@ import requests
 import json
 
 commentID = 172
-url = "http://api.comment-iq.com/commentIQ/v1/getLength/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/getLength/"+ str(commentID)
 response = requests.get(url)
 print response.json()
 ```
@@ -565,7 +565,7 @@ To get All Scores of a comment - the Comment ID needs to be sent via HTTP GET me
 
 | Name   | Values and Notes           |
 |:----------|:-------------|
-| commentID | Should be sent as part of URL |
+| commentID | Should be sent as part of URL, Value Data Type: Integer/Number |
 
 
 ### Response
@@ -586,7 +586,7 @@ imoport requests
 import json
 
 commentID = 172
-url = "http://api.comment-iq.com/commentIQ/v1/getScores/'"+ str(commentID) +"'"
+url = "http://api.comment-iq.com/commentIQ/v1/getScores/"+ str(commentID)
 response = requests.get(url)
 print response.json()
 ```
