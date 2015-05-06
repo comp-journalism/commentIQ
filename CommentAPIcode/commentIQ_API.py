@@ -37,6 +37,12 @@ def addArticle():
             current_time = time.strftime("%Y-%m-%d %I:%M:%S")
             data = request.data
             dataDict = json.loads(data)
+
+            if isinstance(dataDict['article_text'],basestring):
+                    pass
+            else:
+                return jsonify(articleID = None ,status = "Enter Article Text as a string value")
+
             article_text = escape_string(dataDict['article_text'].strip())
 
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
@@ -72,6 +78,19 @@ def updateArticle():
             data = request.data
             dataDict = json.loads(data)
             articleID = dataDict['articleID']
+
+            if isinstance(articleID,int):
+                pass
+            elif articleID.isdigit():
+                pass
+            else:
+                return jsonify(status = "articleID Should be Numeric/Integer")
+
+            if isinstance(dataDict['article_text'],basestring):
+                    pass
+            else:
+                return jsonify(status = "Enter Article Text as a string value")
+
             article_text = escape_string(dataDict['article_text'].strip())
 
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
@@ -80,7 +99,7 @@ def updateArticle():
             cursor.execute("select count(*) from articles where articleID = '"+ str(articleID) +"' ")
             count = cursor.fetchall()[0][0]
             if count < 1 :
-                return jsonify(status = "articleID does not exist")
+                return jsonify(status = "Invalid articleID")
 
             update = "update articles set full_text = '"+ article_text +"' " \
                      " where articleID = '"+ str(articleID) +"' "
@@ -107,6 +126,21 @@ def AddComment():
             data = request.data
             dataDict = json.loads(data)
             articleID = dataDict['articleID']
+
+            if isinstance(articleID,int):
+                pass
+            elif articleID.isdigit():
+                pass
+            else:
+                return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                               Readability = 0.0, Length = 0.0,commentID = None ,status = "articleID Should be Numeric/Integer")
+
+            if isinstance(dataDict['commentBody'],basestring):
+                    pass
+            else:
+                return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                           Readability = 0.0, Length = 0.0,commentID = None ,status = "Enter commentBody as a string value")
+
             commentBody = escape_string(dataDict['commentBody'].strip())
 
             if 'commentDate' in dataDict:
@@ -121,17 +155,35 @@ def AddComment():
                 commentDate = time.strftime("%Y-%m-%d %H:%M:%S")
 
             if 'recommendationCount' in dataDict:
+                recommendationCount = dataDict['recommendationCount']
+                if isinstance(recommendationCount,int):
+                    pass
+                elif recommendationCount.isdigit():
+                    pass
+                else:
+                    return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                                   Readability = 0.0, Length = 0.0,commentID = None ,status = "recommendationCount Should be Numeric/Integer")
                 recommendationCount = int(dataDict['recommendationCount'])
             else:
                 recommendationCount = 0
 
             if 'username' in dataDict:
                 username = dataDict['username']
+                if isinstance(username,basestring):
+                    pass
+                else:
+                    return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                               Readability = 0.0, Length = 0.0,commentID = None ,status = "Enter username as a string value")
             else:
                 username = ""
 
             if 'location' in dataDict:
                 location = dataDict['location']
+                if isinstance(location,basestring):
+                    pass
+                else:
+                    return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                               Readability = 0.0, Length = 0.0,commentID = None ,status = "Enter Location as a string value")
             else:
                 location = ""
 
@@ -142,7 +194,7 @@ def AddComment():
             count = cursor.fetchall()[0][0]
             if count < 1 :
                 return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
-                               Readability = 0.0, Length = 0.0,commentID = None ,status = "articleID does not exist")
+                               Readability = 0.0, Length = 0.0,commentID = None ,status = "Invalid articleID")
             else:
                 # Call addComment() function of subroutine - calculate_score to calculate all the scores
                 ArticleRelevance, ConversationalRelevance, PersonalXP, Readability, Length = \
@@ -195,6 +247,20 @@ def UpdateComments():
             dataDict = json.loads(data)
             commentID = dataDict['commentID']
 
+            if isinstance(commentID,int):
+                pass
+            elif commentID.isdigit():
+                pass
+            else:
+                return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                               Readability = 0.0, Length = 0.0,status = "commentID Should be Numeric/Integer")
+
+            if isinstance(dataDict['commentBody'],basestring):
+                    pass
+            else:
+                return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                           Readability = 0.0, Length = 0.0,status = "Enter commentBody as a string value")
+
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
             cursor = cnx.cursor()
 
@@ -202,8 +268,7 @@ def UpdateComments():
             count = cursor.fetchall()[0][0]
             if count < 1 :
                 return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
-                               Readability = 0.0, Length = 0.0,status = "commentID does not exist")
-
+                               Readability = 0.0, Length = 0.0,status = "Invalid commentID")
 
             cursor.execute("select commentDate,recommendationCount,username,location from comments where commentID = '"+ str(commentID) +"'")
 
@@ -226,12 +291,30 @@ def UpdateComments():
 
             if 'recommendationCount' in dataDict:
                 recommendationCount = dataDict['recommendationCount']
+                if isinstance(recommendationCount,int):
+                    pass
+                elif recommendationCount.isdigit():
+                    pass
+                else:
+                    return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                                   Readability = 0.0, Length = 0.0,status = "recommendationCount Should be Numeric/Integer")
+                recommendationCount = int(recommendationCount)
 
             if 'username' in dataDict:
                 username = dataDict['username']
+                if isinstance(username,basestring):
+                    pass
+                else:
+                    return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                               Readability = 0.0, Length = 0.0, status = "Enter username as a string value")
 
             if 'location' in dataDict:
                 location = dataDict['location']
+                if isinstance(location,basestring):
+                    pass
+                else:
+                    return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                               Readability = 0.0, Length = 0.0,status = "Enter Location as a string value")
 
             # Call updateComment() function of subroutine - calculate_score to re-calculate all the scores
             ArticleRelevance, ConversationalRelevance, PersonalXP, Readability, Length  = \
@@ -282,13 +365,20 @@ def deleteComment(commentID):
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
 
+            if isinstance(commentID,int):
+                pass
+            elif commentID.isdigit():
+                pass
+            else:
+                return jsonify(status = "commentID Should be Numeric/Integer")
+
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
             cursor = cnx.cursor()
 
             cursor.execute("select count(*) from comments where commentID = '"+ str(commentID) +"' ")
             count = cursor.fetchall()[0][0]
             if count < 1 :
-                return jsonify(status = "commentID does not exist")
+                return jsonify(status = "Invalid commentID")
 
 
             delete = "delete from comments where commentID = '"+ commentID +"'"
@@ -318,13 +408,20 @@ def getArticleRelevance(commentID):
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
 
+            if isinstance(commentID,int):
+                pass
+            elif commentID.isdigit():
+                pass
+            else:
+                return jsonify(ArticleRelevance = 0.0 ,status = "commentID Should be Numeric/Integer")
+
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
             cursor = cnx.cursor()
 
             cursor.execute("select count(*) from comments where commentID = '"+ str(commentID) +"' ")
             count = cursor.fetchall()[0][0]
             if count < 1 :
-                return jsonify(ArticleRelevance = 0.0, status = "commentID does not exist")
+                return jsonify(ArticleRelevance = 0.0, status = "Invalid commentID")
 
 
             cursor.execute("select ArticleRelevance from comments where commentID = '" + commentID + "' ")
@@ -363,7 +460,7 @@ def getConversationalRelevance(commentID):
             cursor.execute("select count(*) from comments where commentID = '"+ str(commentID) +"' ")
             count = cursor.fetchall()[0][0]
             if count < 1 :
-                return jsonify(ConversationalRelevance = 0.0 , status = "commentID does not exist")
+                return jsonify(ConversationalRelevance = 0.0 , status = "Invalid commentID")
 
 
             cursor.execute("select ConversationalRelevance from comments where commentID = '" + commentID + "' ")
@@ -396,13 +493,20 @@ def getPersonalXP(commentID):
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
 
+            if isinstance(commentID,int):
+                pass
+            elif commentID.isdigit():
+                pass
+            else:
+                return jsonify(PersonalXP = 0.0 , status = "commentID Should be Numeric/Integer")
+
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
             cursor = cnx.cursor()
 
             cursor.execute("select count(*) from comments where commentID = '"+ str(commentID) +"' ")
             count = cursor.fetchall()[0][0]
             if count < 1 :
-                return jsonify(PersonalXP = 0.0 ,status = "commentID does not exist")
+                return jsonify(PersonalXP = 0.0 ,status = "Invalid commentID")
 
 
             cursor.execute("select PersonalXP from comments where commentID = '" + commentID + "' ")
@@ -435,13 +539,20 @@ def getReadability(commentID):
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
 
+            if isinstance(commentID,int):
+                pass
+            elif commentID.isdigit():
+                pass
+            else:
+                return jsonify(Readability = 0.0,status = "commentID Should be Numeric/Integer")
+
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
             cursor = cnx.cursor()
 
             cursor.execute("select count(*) from comments where commentID = '"+ str(commentID) +"' ")
             count = cursor.fetchall()[0][0]
             if count < 1 :
-                return jsonify(Readability = 0.0, status = "commentID does not exist")
+                return jsonify(Readability = 0.0, status = "Invalid commentID")
 
 
             cursor.execute("select Readability from comments where commentID = '" + commentID + "' ")
@@ -474,13 +585,20 @@ def getLength(commentID):
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
 
+            if isinstance(commentID,int):
+                pass
+            elif commentID.isdigit():
+                pass
+            else:
+                return jsonify(Length = 0.0,status = "commentID Should be Numeric/Integer")
+
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
             cursor = cnx.cursor()
 
             cursor.execute("select count(*) from comments where commentID = '"+ str(commentID) +"' ")
             count = cursor.fetchall()[0][0]
             if count < 1 :
-                return jsonify(Length = 0.0,status = "commentID does not exist")
+                return jsonify(Length = 0.0,status = "Invalid commentID")
 
 
             cursor.execute("select CommentLength from comments where commentID = '" + commentID + "' ")
@@ -514,6 +632,15 @@ def getScores(commentID):
             commentID = commentID.replace("'", '')
             commentID = commentID.replace('"', '')
 
+            if isinstance(commentID,int):
+                pass
+            elif commentID.isdigit():
+                pass
+            else:
+                return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
+                               Readability = 0.0, Length = 0.0,status = "commentID Should be Numeric/Integer")
+
+
             cnx = mysql.connector.connect(user=user, password=password, host=host, database=database)
             cursor = cnx.cursor()
 
@@ -521,7 +648,7 @@ def getScores(commentID):
             count = cursor.fetchall()[0][0]
             if count < 1 :
                 return jsonify(ArticleRelevance = 0.0, ConversationalRelevance = 0.0 , PersonalXP = 0.0 , \
-                               Readability = 0.0, Length = 0.0,status = "commentID does not exist")
+                               Readability = 0.0, Length = 0.0,status = "Invalid commentID")
 
 
             cursor.execute("select ArticleRelevance,ConversationalRelevance,PersonalXP,Readability, CommentLength " \
