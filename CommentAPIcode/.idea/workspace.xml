@@ -23,34 +23,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="calculate_score.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="calculate_score.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calculate_score.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1811723" vertical-offset="0" max-vertical-offset="5100">
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="5304">
               <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="52" />
               <folding>
                 <element signature="e#279#316#0" expanded="true" />
-                <marker date="1423453927535" expanded="true" signature="2744:2817" placeholder="select full_..articles..." />
-                <marker date="1423453927535" expanded="true" signature="2940:3010" placeholder="select artic..comments..." />
-                <marker date="1423453927535" expanded="true" signature="3235:3308" placeholder="select full_..articles..." />
-                <marker date="1423453927535" expanded="true" signature="5579:5654" placeholder="select comme..comments..." />
-                <marker date="1423453927535" expanded="true" signature="5778:5848" placeholder="select artic..comments..." />
-                <marker date="1423453927535" expanded="true" signature="6087:6225" placeholder="select comme..comments..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NytApiCall_ComputeVocab.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="NytApiCall_ComputeVocab.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NytApiCall_ComputeVocab.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.72" vertical-offset="0" max-vertical-offset="4199">
-              <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.664966" vertical-offset="2618" max-vertical-offset="5049">
+              <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
               <folding>
-                <element signature="e#282#295#0" expanded="true" />
-                <marker date="1423453723403" expanded="true" signature="5781:6134" placeholder="INSERT INTO ..." />
-                <marker date="1423453723403" expanded="true" signature="7004:7042" placeholder="select comme..vocab_comments..." />
-                <marker date="1423453723403" expanded="true" signature="8938:8973" placeholder="select count..vocab_comments..." />
+                <marker date="1432056314426" expanded="true" signature="6111:6474" placeholder="INSERT INTO ..." />
+                <marker date="1432056314426" expanded="true" signature="7490:7559" placeholder="select DATE_..vocab_comments..." />
+                <marker date="1432056314426" expanded="true" signature="7667:7729" placeholder="delete from ..." />
+                <marker date="1432056314426" expanded="true" signature="7970:8008" placeholder="select comme..vocab_comments..." />
+                <marker date="1432056314426" expanded="true" signature="11144:11179" placeholder="select count..vocab_comments..." />
               </folding>
             </state>
           </provider>
@@ -59,23 +54,9 @@
       <file leaf-file-name="commentIQ_API.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commentIQ_API.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.68" vertical-offset="0" max-vertical-offset="5440">
+            <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="12036">
               <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
-              <folding>
-                <element signature="e#219#260#0" expanded="true" />
-                <marker date="1423453927593" expanded="true" signature="1411:1516" placeholder="INSERT INTO ..." />
-                <marker date="1423453927593" expanded="true" signature="2456:2576" placeholder="update artic..." />
-                <marker date="1423453927593" expanded="true" signature="3346:3416" placeholder="select count..articles..." />
-                <marker date="1423453927593" expanded="true" signature="3988:4228" placeholder="INSERT INTO ..." />
-                <marker date="1423453927593" expanded="true" signature="6028:6394" placeholder="update comme..." />
-                <marker date="1423453927593" expanded="true" signature="7525:7581" placeholder="delete from ..." />
-                <marker date="1423453927593" expanded="true" signature="8219:8294" placeholder="select Artic..comments..." />
-                <marker date="1423453927593" expanded="true" signature="9106:9188" placeholder="select Conve..comments..." />
-                <marker date="1423453927593" expanded="true" signature="10005:10074" placeholder="select Perso..comments..." />
-                <marker date="1423453927593" expanded="true" signature="10820:10890" placeholder="select Reada..comments..." />
-                <marker date="1423453927593" expanded="true" signature="11621:11771" placeholder="select Artic..comments..." />
-                <marker date="1423453927593" expanded="true" signature="11697:11771" placeholder="select Artic..cname_comments..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,16 +71,16 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/NytApiCall_ComputeVocab.py" />
         <option value="$PROJECT_DIR$/commentIQ_API.py" />
         <option value="$PROJECT_DIR$/calculate_score.py" />
+        <option value="$PROJECT_DIR$/NytApiCall_ComputeVocab.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
+    <option name="width" value="1378" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -219,7 +200,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -227,7 +208,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25755286" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26136363" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -235,11 +216,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -264,16 +245,42 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/calculate_score.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="5304">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="52" />
+          <folding>
+            <element signature="e#279#316#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NytApiCall_ComputeVocab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="5236">
+          <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+          <folding>
+            <marker date="1432056314426" expanded="true" signature="6111:6474" placeholder="INSERT INTO ..." />
+            <marker date="1432056314426" expanded="true" signature="7490:7559" placeholder="select DATE_..vocab_comments..." />
+            <marker date="1432056314426" expanded="true" signature="7667:7729" placeholder="delete from ..." />
+            <marker date="1432056314426" expanded="true" signature="7970:8008" placeholder="select comme..vocab_comments..." />
+            <marker date="1432056314426" expanded="true" signature="11144:11179" placeholder="select count..vocab_comments..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commentIQ_API.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="12036">
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calculate_score.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="4726">
           <caret line="30" column="27" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="27" />
           <folding>
             <element signature="e#279#316#0" expanded="true" />
-            <marker date="1423453927535" expanded="true" signature="2744:2817" placeholder="select full_..articles..." />
-            <marker date="1423453927535" expanded="true" signature="2940:3010" placeholder="select artic..comments..." />
-            <marker date="1423453927535" expanded="true" signature="3235:3308" placeholder="select full_..articles..." />
-            <marker date="1423453927535" expanded="true" signature="5579:5654" placeholder="select comme..comments..." />
-            <marker date="1423453927535" expanded="true" signature="5778:5848" placeholder="select artic..comments..." />
-            <marker date="1423453927535" expanded="true" signature="6087:6225" placeholder="select comme..comments..." />
           </folding>
         </state>
       </provider>
@@ -282,21 +289,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="5372">
           <caret line="17" column="35" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="35" />
-          <folding>
-            <element signature="e#219#260#0" expanded="true" />
-            <marker date="1423453927593" expanded="true" signature="1411:1516" placeholder="INSERT INTO ..." />
-            <marker date="1423453927593" expanded="true" signature="2456:2576" placeholder="update artic..." />
-            <marker date="1423453927593" expanded="true" signature="3346:3416" placeholder="select count..articles..." />
-            <marker date="1423453927593" expanded="true" signature="3988:4228" placeholder="INSERT INTO ..." />
-            <marker date="1423453927593" expanded="true" signature="6028:6394" placeholder="update comme..." />
-            <marker date="1423453927593" expanded="true" signature="7525:7581" placeholder="delete from ..." />
-            <marker date="1423453927593" expanded="true" signature="8219:8294" placeholder="select Artic..comments..." />
-            <marker date="1423453927593" expanded="true" signature="9106:9188" placeholder="select Conve..comments..." />
-            <marker date="1423453927593" expanded="true" signature="10005:10074" placeholder="select Perso..comments..." />
-            <marker date="1423453927593" expanded="true" signature="10820:10890" placeholder="select Reada..comments..." />
-            <marker date="1423453927593" expanded="true" signature="11621:11771" placeholder="select Artic..comments..." />
-            <marker date="1423453927593" expanded="true" signature="11697:11771" placeholder="select Artic..cname_comments..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -306,12 +299,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#279#316#0" expanded="true" />
-            <marker date="1423453927535" expanded="true" signature="2744:2817" placeholder="select full_..articles..." />
-            <marker date="1423453927535" expanded="true" signature="2940:3010" placeholder="select artic..comments..." />
-            <marker date="1423453927535" expanded="true" signature="3235:3308" placeholder="select full_..articles..." />
-            <marker date="1423453927535" expanded="true" signature="5579:5654" placeholder="select comme..comments..." />
-            <marker date="1423453927535" expanded="true" signature="5778:5848" placeholder="select artic..comments..." />
-            <marker date="1423453927535" expanded="true" signature="6087:6225" placeholder="select comme..comments..." />
           </folding>
         </state>
       </provider>
@@ -320,21 +307,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="5372">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="17" selection-end-column="63" />
-          <folding>
-            <element signature="e#219#260#0" expanded="true" />
-            <marker date="1423453927593" expanded="true" signature="1411:1516" placeholder="INSERT INTO ..." />
-            <marker date="1423453927593" expanded="true" signature="2456:2576" placeholder="update artic..." />
-            <marker date="1423453927593" expanded="true" signature="3346:3416" placeholder="select count..articles..." />
-            <marker date="1423453927593" expanded="true" signature="3988:4228" placeholder="INSERT INTO ..." />
-            <marker date="1423453927593" expanded="true" signature="6028:6394" placeholder="update comme..." />
-            <marker date="1423453927593" expanded="true" signature="7525:7581" placeholder="delete from ..." />
-            <marker date="1423453927593" expanded="true" signature="8219:8294" placeholder="select Artic..comments..." />
-            <marker date="1423453927593" expanded="true" signature="9106:9188" placeholder="select Conve..comments..." />
-            <marker date="1423453927593" expanded="true" signature="10005:10074" placeholder="select Perso..comments..." />
-            <marker date="1423453927593" expanded="true" signature="10820:10890" placeholder="select Reada..comments..." />
-            <marker date="1423453927593" expanded="true" signature="11621:11771" placeholder="select Artic..comments..." />
-            <marker date="1423453927593" expanded="true" signature="11697:11771" placeholder="select Artic..cname_comments..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -343,61 +316,43 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="228" max-vertical-offset="3570">
           <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
           <folding>
-            <element signature="e#282#295#0" expanded="true" />
-            <marker date="1423453723403" expanded="true" signature="5781:6134" placeholder="INSERT INTO ..." />
-            <marker date="1423453723403" expanded="true" signature="7004:7042" placeholder="select comme..vocab_comments..." />
-            <marker date="1423453723403" expanded="true" signature="8938:8973" placeholder="select count..vocab_comments..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NytApiCall_ComputeVocab.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.72" vertical-offset="0" max-vertical-offset="4199">
-          <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
-          <folding>
-            <element signature="e#282#295#0" expanded="true" />
-            <marker date="1423453723403" expanded="true" signature="5781:6134" placeholder="INSERT INTO ..." />
-            <marker date="1423453723403" expanded="true" signature="7004:7042" placeholder="select comme..vocab_comments..." />
-            <marker date="1423453723403" expanded="true" signature="8938:8973" placeholder="select count..vocab_comments..." />
+            <marker date="1432056314426" expanded="true" signature="6111:6474" placeholder="INSERT INTO ..." />
+            <marker date="1432056314426" expanded="true" signature="7490:7559" placeholder="select DATE_..vocab_comments..." />
+            <marker date="1432056314426" expanded="true" signature="7667:7729" placeholder="delete from ..." />
+            <marker date="1432056314426" expanded="true" signature="7970:8008" placeholder="select comme..vocab_comments..." />
+            <marker date="1432056314426" expanded="true" signature="11144:11179" placeholder="select count..vocab_comments..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/commentIQ_API.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.68" vertical-offset="0" max-vertical-offset="5440">
+        <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="12036">
           <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
-          <folding>
-            <element signature="e#219#260#0" expanded="true" />
-            <marker date="1423453927593" expanded="true" signature="1411:1516" placeholder="INSERT INTO ..." />
-            <marker date="1423453927593" expanded="true" signature="2456:2576" placeholder="update artic..." />
-            <marker date="1423453927593" expanded="true" signature="3346:3416" placeholder="select count..articles..." />
-            <marker date="1423453927593" expanded="true" signature="3988:4228" placeholder="INSERT INTO ..." />
-            <marker date="1423453927593" expanded="true" signature="6028:6394" placeholder="update comme..." />
-            <marker date="1423453927593" expanded="true" signature="7525:7581" placeholder="delete from ..." />
-            <marker date="1423453927593" expanded="true" signature="8219:8294" placeholder="select Artic..comments..." />
-            <marker date="1423453927593" expanded="true" signature="9106:9188" placeholder="select Conve..comments..." />
-            <marker date="1423453927593" expanded="true" signature="10005:10074" placeholder="select Perso..comments..." />
-            <marker date="1423453927593" expanded="true" signature="10820:10890" placeholder="select Reada..comments..." />
-            <marker date="1423453927593" expanded="true" signature="11621:11771" placeholder="select Artic..comments..." />
-            <marker date="1423453927593" expanded="true" signature="11697:11771" placeholder="select Artic..cname_comments..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/calculate_score.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1811723" vertical-offset="0" max-vertical-offset="5100">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="5304">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="52" />
           <folding>
             <element signature="e#279#316#0" expanded="true" />
-            <marker date="1423453927535" expanded="true" signature="2744:2817" placeholder="select full_..articles..." />
-            <marker date="1423453927535" expanded="true" signature="2940:3010" placeholder="select artic..comments..." />
-            <marker date="1423453927535" expanded="true" signature="3235:3308" placeholder="select full_..articles..." />
-            <marker date="1423453927535" expanded="true" signature="5579:5654" placeholder="select comme..comments..." />
-            <marker date="1423453927535" expanded="true" signature="5778:5848" placeholder="select artic..comments..." />
-            <marker date="1423453927535" expanded="true" signature="6087:6225" placeholder="select comme..comments..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NytApiCall_ComputeVocab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.664966" vertical-offset="2618" max-vertical-offset="5049">
+          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+          <folding>
+            <marker date="1432056314426" expanded="true" signature="6111:6474" placeholder="INSERT INTO ..." />
+            <marker date="1432056314426" expanded="true" signature="7490:7559" placeholder="select DATE_..vocab_comments..." />
+            <marker date="1432056314426" expanded="true" signature="7667:7729" placeholder="delete from ..." />
+            <marker date="1432056314426" expanded="true" signature="7970:8008" placeholder="select comme..vocab_comments..." />
+            <marker date="1432056314426" expanded="true" signature="11144:11179" placeholder="select count..vocab_comments..." />
           </folding>
         </state>
       </provider>

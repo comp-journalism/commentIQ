@@ -188,9 +188,9 @@ def CollectComments():
                 update_date_json(d_start.strftime("%Y-%m-%d"),d_end.strftime("%Y-%m-%d"),offset)
 
                 # cut off the comments data that is more than 3 months
-                cursor.execute("select DATE_SUB(max(approveDate), INTERVAL 90 DAY) from vocab_comments ")
+                cursor.execute("select DATE_SUB(max(createDate), INTERVAL 90 DAY) from vocab_comments ")
                 max_date = cursor.fetchall()[0][0].strftime("%Y-%m-%d")
-                cursor.execute("delete from vocab_comments where approveDate < '"+ max_date +"'")
+                cursor.execute("delete from vocab_comments where createDate < '"+ max_date +"'")
                 cnx.commit()
     except:
         print error_name(g_day,g_offset)
